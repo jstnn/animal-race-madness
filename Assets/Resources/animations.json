@@ -1,0 +1,6 @@
+{
+    "animations": [
+        {"type": "BEAR", "idle": "idle2Legs", "walk": "walk", "run": "run"},
+        {"type": "CROCODILE", "idle": "swim", "walk": "walk", "run": "runBite"}
+    ]
+}
