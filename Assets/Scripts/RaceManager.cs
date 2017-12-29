@@ -37,7 +37,6 @@ public class RaceManager : MonoBehaviour {
 
 	private void PositionPlayers() {
 		int trackWidth = raceWidth / players.Count;
-		Debug.Log (trackWidth);
 		int firstPosition = 1;
 		int offsetTrack = trackWidth / 2;
 		foreach (GameObject player in players) {

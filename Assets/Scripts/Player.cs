@@ -21,7 +21,6 @@ public class Player : MonoBehaviour {
 		var data = JSON.Parse(animationsData);
 		var animations = data ["animations"];
 		foreach(System.Collections.Generic.KeyValuePair<string,SimpleJSON.JSONNode> kvp in animations) {
-			// Debug.Log(playerType+"+@@@@@@+"+kvp.Value ["type"].Value);
 			if ( playerType == kvp.Value ["type"].Value ) {
 				idleName = kvp.Value ["idle"].Value;
 				walkName = kvp.Value ["walk"].Value;
@@ -30,11 +29,13 @@ public class Player : MonoBehaviour {
 
 		}
 		this.transform.localScale = new Vector3 (2, 2, 2);
+		if (mainPlayer==true) {
+			GameObject mainCamera = GameObject.Find ("Main Camera");
+			mainCamera.transform.parent = this.gameObject.transform;
+
+		}
 	}
 			
-
-
-
 
 	void Update() {
 		this.GetComponent<Animation> ().Play (idleName);
