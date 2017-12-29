@@ -7,6 +7,8 @@ public class RaceManager : MonoBehaviour {
 	public List<GameObject> players = new List<GameObject>();
 	private static string url = "https://api.myjson.com/bins/y73cf";
 
+	public int raceWidth = 25;
+
 
 	// Use this for initialization
 	void Start () {
@@ -27,9 +29,22 @@ public class RaceManager : MonoBehaviour {
 			foreach(System.Collections.Generic.KeyValuePair<string,SimpleJSON.JSONNode> kvp in players) {
 				CreatePlayer (kvp.Value ["type"].Value, kvp.Value ["current_player"].AsBool);
 			}
+			PositionPlayers ();
 		} else {
 			Debug.Log("WWW Error: "+ www.error);
 		}    
+	}
+
+	private void PositionPlayers() {
+		int trackWidth = raceWidth / players.Count;
+		Debug.Log (trackWidth);
+		int firstPosition = 1;
+		int offsetTrack = trackWidth / 2;
+		foreach (GameObject player in players) {
+			int playerPosition = (firstPosition * trackWidth) - offsetTrack;
+			player.transform.position = new Vector3 (playerPosition, player.transform.position.y, player.transform.position.z);
+			firstPosition++;
+		}
 	}
 
 	private void CreatePlayer(string type, bool mainPlayer) {
