@@ -60,7 +60,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1877499748844106
 GameObject:
@@ -93,7 +93,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1950780559045368
 GameObject:
@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 33083536936069380}
   - component: {fileID: 23005874589195686}
   - component: {fileID: 64712773473473098}
+  - component: {fileID: 65703085217176694}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -368,7 +369,7 @@ MeshCollider:
   m_GameObject: {fileID: 1950780559045368}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_InflateMesh: 0
@@ -402,6 +403,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 1cf82180e57cf7f4bba6549f13bf05a3, type: 3}
+--- !u!65 &65703085217176694
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950780559045368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25, y: 2.7755576e-15, z: 50}
+  m_Center: {x: 12.5, y: 1.3877788e-15, z: -12.5}
 --- !u!65 &65838736880444328
 BoxCollider:
   m_ObjectHideFlags: 1

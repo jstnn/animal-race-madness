@@ -29,39 +29,33 @@ public class Player : MonoBehaviour {
 		}
 		this.transform.localScale = new Vector3 (2, 2, 2);
 		if (mainPlayer==true) {
-			
-
-
 			GameObject mainCamera = GameObject.Find ("Main Camera");
 			mainCamera.AddComponent<CameraFollow> ();
 			mainCamera.GetComponent<CameraFollow> ().target = this.gameObject.transform;
-			mainCamera.GetComponent<CameraFollow> ().offset = new Vector3 (20, 20, 0);
-			mainCamera.transform.parent = this.gameObject.transform;
-
+			mainCamera.GetComponent<CameraFollow> ().offset = new Vector3 (20, 19, -11);
 		}
 	}
 			
-
-	void Update() {
-		this.GetComponent<Animation> ().Play (idleName);
-		if (mainPlayer==true) {
-			if (Input.GetKeyDown (KeyCode.Space)) {
-
-				this.GetComponent<Animation> ().Play (runName);
-
-
-				Vector3 position = this.transform.position;
-				position.z++;
-				this.transform.position = position;
-
-
-			} else {
-				this.GetComponent<Animation> ().Play (idleName);
-			}
-		}
-
-	}
-
+//
+//	void Update() {
+//		this.GetComponent<Animation> ().Play (idleName);
+//		if (mainPlayer==true) {
+//			if (Input.GetKeyDown (KeyCode.Space)) {
+//
+//				this.GetComponent<Animation> ().Play (runName);
+//
+//				Vector3 position = this.transform.position;
+//				position.z++;
+//				this.transform.position = position;
+//
+//
+//			} else {
+//				this.GetComponent<Animation> ().Play (idleName);
+//			}
+//		}
+//
+//	}
+//
 
 
 	public static string Read(string filename) {

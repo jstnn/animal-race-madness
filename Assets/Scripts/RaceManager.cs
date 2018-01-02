@@ -49,16 +49,51 @@ public class RaceManager : MonoBehaviour {
 		}
 	}
 
+	static void FitToChildren(BoxCollider rootGameObject) {
+		bool hasBounds = false;
+		Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
+
+		for (int i = 0; i < rootGameObject.transform.childCount; ++i) {
+			Renderer childRenderer = rootGameObject.transform.GetChild(i).GetComponent<Renderer>();
+			if (childRenderer != null) {
+				if (hasBounds) {
+					bounds.Encapsulate(childRenderer.bounds);
+				}
+				else {
+					bounds = childRenderer.bounds;
+					hasBounds = true;
+				}
+			}
+		}
+
+		BoxCollider collider = (BoxCollider)rootGameObject.GetComponent<Collider>();
+		collider.center = bounds.center - rootGameObject.transform.position;
+		collider.size = bounds.size;
+
+	}
+
 	private void CreatePlayer(string type, bool mainPlayer) {
 		string prefabName = "animals/" + type + "/FBX FILES/" + type;
+
 		GameObject instance = Instantiate(Resources.Load(prefabName, typeof(GameObject))) as GameObject;
+
+		players.Add (instance);
+
 		instance.AddComponent<Player> ();
 		instance.GetComponent<Player> ().playerType = type;
 		instance.GetComponent<Player> ().mainPlayer = mainPlayer;
-		instance.AddComponent<BoxCollider> ();
+
+
+		BoxCollider boxCol = instance.AddComponent<BoxCollider>();
+		FitToChildren (boxCol);
+
 		Rigidbody currentRb = instance.AddComponent<Rigidbody>();
-		// You can even access the rigidbody with no effort
 		currentRb.detectCollisions = true;
-		players.Add (instance);
+
+		if (mainPlayer == true) {
+			instance.AddComponent<PlayerController> ();
+		}
 	}
+
+
 }
