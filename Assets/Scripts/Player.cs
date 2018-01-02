@@ -14,23 +14,28 @@ public class Player : MonoBehaviour {
 	public string runName = "run";
 	public bool mainPlayer = false;
 
+
 	// Use this for initialization
 	void Start () {
-		
 		string animationsData = Read("animations");
 		var data = JSON.Parse(animationsData);
 		var animations = data ["animations"];
-		foreach(System.Collections.Generic.KeyValuePair<string,SimpleJSON.JSONNode> kvp in animations) {
+		foreach(KeyValuePair<string,SimpleJSON.JSONNode> kvp in animations) {
 			if ( playerType == kvp.Value ["type"].Value ) {
 				idleName = kvp.Value ["idle"].Value;
 				walkName = kvp.Value ["walk"].Value;
 				runName = kvp.Value ["run"].Value;
 			}
-
 		}
 		this.transform.localScale = new Vector3 (2, 2, 2);
 		if (mainPlayer==true) {
+			
+
+
 			GameObject mainCamera = GameObject.Find ("Main Camera");
+			mainCamera.AddComponent<CameraFollow> ();
+			mainCamera.GetComponent<CameraFollow> ().target = this.gameObject.transform;
+			mainCamera.GetComponent<CameraFollow> ().offset = new Vector3 (20, 20, 0);
 			mainCamera.transform.parent = this.gameObject.transform;
 
 		}

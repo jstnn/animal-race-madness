@@ -8,6 +8,8 @@ public class RaceManager : MonoBehaviour {
 	private static string url = "https://api.myjson.com/bins/y73cf";
 
 	public int raceWidth = 25;
+	public int yStartPosition;
+	public int zStartPosition;
 
 
 	// Use this for initialization
@@ -26,7 +28,7 @@ public class RaceManager : MonoBehaviour {
 		{
 			var data = JSON.Parse(www.text);
 			var players = data ["players"];
-			foreach(System.Collections.Generic.KeyValuePair<string,SimpleJSON.JSONNode> kvp in players) {
+			foreach(KeyValuePair<string,SimpleJSON.JSONNode> kvp in players) {
 				CreatePlayer (kvp.Value ["type"].Value, kvp.Value ["current_player"].AsBool);
 			}
 			PositionPlayers ();
@@ -41,7 +43,8 @@ public class RaceManager : MonoBehaviour {
 		int offsetTrack = trackWidth / 2;
 		foreach (GameObject player in players) {
 			int playerPosition = (firstPosition * trackWidth) - offsetTrack;
-			player.transform.position = new Vector3 (playerPosition, player.transform.position.y, player.transform.position.z);
+			player.transform.position = new Vector3 (playerPosition, player.transform.position.y + yStartPosition, player.transform.position.z + zStartPosition);
+			Debug.Log (player.transform.position.x+","+player.transform.position.y+","+player.transform.position.z);
 			firstPosition++;
 		}
 	}
@@ -52,6 +55,10 @@ public class RaceManager : MonoBehaviour {
 		instance.AddComponent<Player> ();
 		instance.GetComponent<Player> ().playerType = type;
 		instance.GetComponent<Player> ().mainPlayer = mainPlayer;
+		instance.AddComponent<BoxCollider> ();
+		Rigidbody currentRb = instance.AddComponent<Rigidbody>();
+		// You can even access the rigidbody with no effort
+		currentRb.detectCollisions = true;
 		players.Add (instance);
 	}
 }
