@@ -31,7 +31,8 @@ public class RaceManager : MonoBehaviour {
 			var data = JSON.Parse(www.text);
 			var players = data ["players"];
 			foreach(KeyValuePair<string,SimpleJSON.JSONNode> kvp in players) {
-				CreatePlayer (kvp.Value ["type"].Value, kvp.Value ["current_player"].AsBool);
+				CreatePlayer (kvp);
+				// CreatePlayer (kvp.Value ["type"].Value, kvp.Value ["current_player"].AsBool);
 			}
 			PositionPlayers ();
 		} else {
@@ -74,16 +75,18 @@ public class RaceManager : MonoBehaviour {
 
 	}
 
-	private void CreatePlayer(string type, bool mainPlayer) {
-		string prefabName = "animals/" + type + "/FBX FILES/" + type;
+	private void CreatePlayer(KeyValuePair<string,SimpleJSON.JSONNode> kvp) {
+		string prefabName = "animals/" + kvp.Value ["type"].Value + "/FBX FILES/" + kvp.Value ["type"].Value;
 
 		GameObject instance = Instantiate(Resources.Load(prefabName, typeof(GameObject))) as GameObject;
 
 		players.Add (instance);
 
-		instance.AddComponent<Player> ();
-		instance.GetComponent<Player> ().playerType = type;
-		instance.GetComponent<Player> ().mainPlayer = mainPlayer;
+		Player player = instance.AddComponent<Player> ();
+		player.playerType = kvp.Value ["type"].Value;
+		player.uuid = kvp.Value ["uuid"].Value;
+		player.mainPlayer = kvp.Value ["current_player"].AsBool;
+		player.playerName = kvp.Value ["name"].Value;
 
 
 		BoxCollider boxCol = instance.AddComponent<BoxCollider>();
@@ -92,7 +95,7 @@ public class RaceManager : MonoBehaviour {
 		Rigidbody currentRb = instance.AddComponent<Rigidbody>();
 		currentRb.detectCollisions = true;
 
-		if (mainPlayer == true) {
+		if (player.mainPlayer) {
 			instance.AddComponent<PlayerController> ();
 		}
 	}
