@@ -11,6 +11,8 @@ public class RaceManager : MonoBehaviour {
 	public int yStartPosition;
 	public int zStartPosition;
 
+	private static float colliderFactor=0.6f;
+
 
 	// Use this for initialization
 	void Start () {
@@ -68,7 +70,7 @@ public class RaceManager : MonoBehaviour {
 
 		BoxCollider collider = (BoxCollider)rootGameObject.GetComponent<Collider>();
 		collider.center = bounds.center - rootGameObject.transform.position;
-		collider.size = bounds.size;
+		collider.size = bounds.size * colliderFactor;
 
 	}
 

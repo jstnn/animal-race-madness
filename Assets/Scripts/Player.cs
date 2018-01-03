@@ -28,11 +28,12 @@ public class Player : MonoBehaviour {
 			}
 		}
 		this.transform.localScale = new Vector3 (2, 2, 2);
-		if (mainPlayer==true) {
+		if (mainPlayer) {
 			GameObject mainCamera = GameObject.Find ("Main Camera");
-			mainCamera.AddComponent<CameraFollow> ();
-			mainCamera.GetComponent<CameraFollow> ().target = this.gameObject.transform;
-			mainCamera.GetComponent<CameraFollow> ().offset = new Vector3 (20, 19, -11);
+			CameraFollow cameraFollow = mainCamera.AddComponent<CameraFollow> ();
+			cameraFollow.target = this.gameObject.transform;
+			cameraFollow.offset = new Vector3 (20, 20, -10);
+			cameraFollow.smoothSpeed = 1;
 		}
 	}
 			
