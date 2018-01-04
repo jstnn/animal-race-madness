@@ -1,0 +1,36 @@
+{
+	players: [
+		{
+			uuid: "37796331-2d26-497f-8558-228d4ed660be",
+			type: "CROCODILE",
+			name: "Nicolas",
+			experience: 1,
+			velocity: 2,
+			current_player: false
+		},
+		{
+			uuid: "19849731-323d-486d-a548-8fd2f8e29811",
+			type: "BEAR",
+			name: "David",
+			experience: 2,
+			velocity: 1,
+			current_player: false
+		},
+		{
+			uuid: "19849731-323d-486d-a548-8fd2f8e29811",
+			type: "BEAR",
+			name: "David",
+			experience: 2,
+			velocity: 1,
+			current_player: true
+		},
+		{
+			uuid: "19849731-323d-486d-a548-8fd2f8e29811",
+			type: "CROCODILE",
+			name: "David",
+			experience: 2,
+			velocity: 1,
+			current_player: false
+		}
+	]
+}

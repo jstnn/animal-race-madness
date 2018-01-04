@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 	}
 	void FixedUpdate ()
 	{
-		this.GetComponent<Animation> ().Play (idleName);
+		// this.GetComponent<Animation> ().Play (idleName);
 		if (player.mainPlayer == true) {
 			if (Input.GetKeyDown (KeyCode.A)) {
 				rb.velocity += new Vector3(0,force,0) + (acceleration * gameObject.transform.forward);

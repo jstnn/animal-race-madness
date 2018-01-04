@@ -28,11 +28,11 @@ public class RaceManager : MonoBehaviour {
 		// check for errors
 		if (www.error == null)
 		{
-			var data = JSON.Parse(www.text);
+			string jsonData = PlayerController.Read ("start");
+			var data = JSON.Parse(jsonData);
 			var players = data ["players"];
 			foreach(KeyValuePair<string,SimpleJSON.JSONNode> kvp in players) {
 				CreatePlayer (kvp);
-				// CreatePlayer (kvp.Value ["type"].Value, kvp.Value ["current_player"].AsBool);
 			}
 			PositionPlayers ();
 		} else {
