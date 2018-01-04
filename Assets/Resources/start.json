@@ -18,7 +18,7 @@
 		},
 		{
 			uuid: "19849731-323d-486d-a548-8fd2f8e29811",
-			type: "BEAR",
+			type: "PIG",
 			name: "David",
 			experience: 2,
 			velocity: 1,
@@ -26,7 +26,7 @@
 		},
 		{
 			uuid: "19849731-323d-486d-a548-8fd2f8e29811",
-			type: "CROCODILE",
+			type: "LION",
 			name: "David",
 			experience: 2,
 			velocity: 1,
