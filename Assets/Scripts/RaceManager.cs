@@ -1,53 +1,55 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using SimpleJSON;
 
 public class RaceManager : MonoBehaviour {
 	public List<GameObject> players = new List<GameObject>();
-	private static string url = "https://api.myjson.com/bins/y73cf";
 
 	public int raceWidth = 25;
+    public int playerCount;
 	public int yStartPosition;
 	public int zStartPosition;
 
-	private static float colliderFactor=0.6f;
+	static float colliderFactor=0.7f;
+
+    public static List<string> playerTypeList = new List<string>(); 
+
+
+    void Start() {
+        // get all animal types from json
+        string playersData = PlayerController.Read("animations");
+        var data = JSON.Parse(playersData);
+        var types = data["playerTypes"];
+        foreach (KeyValuePair<string, JSONNode> kvp in types)
+        {
+            playerTypeList.Add(kvp.Value["type"].Value);
+
+        }
+    }
 
 
 	// Use this for initialization
-	void Start () {
-		WWW www = new WWW(url);
-		StartCoroutine(WaitForRequest(www));
+    public void Create () {
+        // Instantiate Main Player
+        InstantiatePlayer(PlayerPrefs.GetString("playerType"), PlayerPrefs.GetString("playerId"), true, PlayerPrefs.GetString("playerName"));
+
+        // Instantiate NPC Players
+        for (int count = 0; count < playerCount; count++) {
+            string randomPlayerType = playerTypeList[Random.Range(1, playerTypeList.Count)];
+            InstantiatePlayer(randomPlayerType, System.Guid.NewGuid().ToString(), false, "NPC "+randomPlayerType);
+        }
+
+        PositionPlayers();
+
 	}
 
-
-	IEnumerator WaitForRequest(WWW www)
-	{
-		yield return www;
-
-		// check for errors
-		if (www.error == null)
-		{
-			string jsonData = PlayerController.Read ("start");
-			var data = JSON.Parse(jsonData);
-			var players = data ["players"];
-			foreach(KeyValuePair<string,SimpleJSON.JSONNode> kvp in players) {
-				CreatePlayer (kvp);
-			}
-			PositionPlayers ();
-		} else {
-			Debug.Log("WWW Error: "+ www.error);
-		}    
-	}
-
-	private void PositionPlayers() {
+	void PositionPlayers() {
 		int trackWidth = raceWidth / players.Count;
 		int firstPosition = 1;
 		int offsetTrack = trackWidth / 2;
 		foreach (GameObject player in players) {
 			int playerPosition = (firstPosition * trackWidth) - offsetTrack;
 			player.transform.position = new Vector3 (playerPosition, player.transform.position.y + yStartPosition, player.transform.position.z + zStartPosition);
-			Debug.Log (player.transform.position.x+","+player.transform.position.y+","+player.transform.position.z);
 			firstPosition++;
 		}
 	}
@@ -75,30 +77,31 @@ public class RaceManager : MonoBehaviour {
 
 	}
 
-	private void CreatePlayer(KeyValuePair<string,SimpleJSON.JSONNode> kvp) {
-		string prefabName = "animals/" + kvp.Value ["type"].Value + "/FBX FILES/" + kvp.Value ["type"].Value;
+    void InstantiatePlayer(string animalType, string animalId, bool isMainPlayer, string animalName) {
+        Debug.Log(animalType + animalId + isMainPlayer + animalName);
+        string prefabName = "animals/" + animalType + "/FBX FILES/" + animalType;
 
-		GameObject instance = Instantiate(Resources.Load(prefabName, typeof(GameObject))) as GameObject;
+        GameObject instance = Instantiate(Resources.Load(prefabName, typeof(GameObject))) as GameObject;
 
-		players.Add (instance);
+        players.Add(instance);
 
-		Player player = instance.AddComponent<Player> ();
-		player.playerType = kvp.Value ["type"].Value;
-		player.uuid = kvp.Value ["uuid"].Value;
-		player.mainPlayer = kvp.Value ["current_player"].AsBool;
-		player.playerName = kvp.Value ["name"].Value;
-
-
-		BoxCollider boxCol = instance.AddComponent<BoxCollider>();
-		FitToChildren (boxCol);
-
-		Rigidbody currentRb = instance.AddComponent<Rigidbody>();
-		currentRb.detectCollisions = true;
-
-		if (player.mainPlayer) {
-			instance.AddComponent<PlayerController> ();
-		}
-	}
+        Animal player = instance.AddComponent<Animal>();
+        player.playerType = animalType;
+        player.uuid = animalId;
+        player.mainPlayer = isMainPlayer;
+        player.playerName = animalName;
 
 
+        BoxCollider boxCol = instance.AddComponent<BoxCollider>();
+        FitToChildren(boxCol);
+
+        Rigidbody currentRb = instance.AddComponent<Rigidbody>();
+        currentRb.detectCollisions = true;
+
+        if (player.mainPlayer)
+        {
+            instance.AddComponent<PlayerController>();
+        }
+
+    }
 }

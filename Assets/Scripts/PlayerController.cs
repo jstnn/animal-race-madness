@@ -10,14 +10,16 @@ public class PlayerController : MonoBehaviour
 	public string runName = "run";
 
 	public Rigidbody rb;
-	private Player player;
+	private Animal player;
+
+	int patrolSpeed = 30;
 
 	int force = 3;
 	float acceleration = 3.0f;
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
-		player = this.GetComponent<Player> ();
+		player = this.GetComponent<Animal> ();
 
 		string animationsData = Read("animations");
 		var data = JSON.Parse(animationsData);
@@ -41,15 +43,26 @@ public class PlayerController : MonoBehaviour
 	}
 	void FixedUpdate ()
 	{
+		Animation anim = player.GetComponent<Animation> ();
+
 		if (player.mainPlayer == true) {
 			if (Input.GetKeyDown (KeyCode.A)) {
 				rb.velocity += new Vector3(0,force,0) + (acceleration * gameObject.transform.forward);
-				this.GetComponent<Animation> ().Play (runName);
 			}
 			if (Input.GetKeyDown (KeyCode.Space)) {
-				this.GetComponent<Animation> ().Play (runName);
 				rb.velocity += new Vector3(0,0,force) + (acceleration * gameObject.transform.forward);
 			}
+		}
+			
+		// Animations by velocity
+		if (rb.velocity.z == 0) {
+			anim.CrossFade(idleName);
+		}
+		else if (rb.velocity.z > 0 && rb.velocity.z <= patrolSpeed) {
+			anim.CrossFade(walkName);
+		}
+		else if (rb.velocity.z > patrolSpeed) {
+			anim.CrossFade(runName);
 		}
 	}
 	public static string Read(string filename) {

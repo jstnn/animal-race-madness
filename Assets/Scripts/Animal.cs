@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
 
-public class Player : MonoBehaviour {
+public class Animal : MonoBehaviour {
 
 	public float velocity = 0f;
 	public float experience = 0f;
