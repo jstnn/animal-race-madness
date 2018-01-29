@@ -11,25 +11,23 @@ public class PlayerController : MonoBehaviour
 
 	Rigidbody rb;
 	Animal player;
-
-	int patrolSpeed = 30;
-
-	int force = 3;
-	float acceleration = 3.0f;
+    int patrolSpeed = 20;
+	int force = 2;
+	float acceleration = 2.0f;
 
 	void Start() {
-		player = this.GetComponent<Animal> ();
+		player = GetComponent<Animal> ();
         rb = player.currentRb;
 
 		string animationsData = Read("animations");
 		var data = JSON.Parse(animationsData);
 		var animations = data ["playerTypes"];
-		foreach(KeyValuePair<string,SimpleJSON.JSONNode> kvp in animations) {
+		foreach(KeyValuePair<string,JSONNode> kvp in animations) {
 			if ( player.playerType == kvp.Value ["type"].Value ) {
 				idleName = kvp.Value ["idle"].Value;
 				walkName = kvp.Value ["walk"].Value;
 				runName = kvp.Value ["run"].Value;
-				// rb.mass = kvp.Value ["mass"].AsInt;
+				player.mass = kvp.Value ["mass"].AsInt;
 			}
 		}
 		transform.localScale = new Vector3 (2, 2, 2);
@@ -41,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
 		if (player.mainPlayer == true) {
 			if (Input.GetKeyDown (KeyCode.A)) {
-				rb.velocity += new Vector3(0,force,0) + (acceleration * gameObject.transform.forward);
+				rb.velocity += new Vector3(0,force*3,0) + (acceleration * gameObject.transform.forward);
 			}
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				rb.velocity += new Vector3(0,0,force) + (acceleration * gameObject.transform.forward);

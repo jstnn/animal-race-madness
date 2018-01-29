@@ -10,7 +10,6 @@ public class RaceManager : MonoBehaviour {
 	public int yStartPosition;
 	public int zStartPosition;
 
-	static float colliderFactor=0.5f;
 
     public static List<string> playerTypeList = new List<string>(); 
 
@@ -28,7 +27,6 @@ public class RaceManager : MonoBehaviour {
     }
 
 
-	// Use this for initialization
     public void Create () {
         // Instantiate Main Player
         InstantiatePlayer(PlayerPrefs.GetString("playerType"), PlayerPrefs.GetString("playerId"), true, PlayerPrefs.GetString("playerName"));
@@ -36,7 +34,6 @@ public class RaceManager : MonoBehaviour {
         // Instantiate NPC Players
         for (int count = 0; count < playerCount; count++) {
             string randomPlayerType = playerTypeList[Random.Range(1, playerTypeList.Count)];
-            Debug.Log("@@@@@@@@@@" + randomPlayerType);
             InstantiatePlayer(randomPlayerType, System.Guid.NewGuid().ToString(), false, "NPC "+randomPlayerType);
         }
 
@@ -55,37 +52,11 @@ public class RaceManager : MonoBehaviour {
 		}
 	}
 
-	static void FitToChildren(BoxCollider rootGameObject) {
-		bool hasBounds = false;
-		Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
-
-		for (int i = 0; i < rootGameObject.transform.childCount; ++i) {
-			Renderer childRenderer = rootGameObject.transform.GetChild(i).GetComponent<Renderer>();
-			if (childRenderer != null) {
-				if (hasBounds) {
-					bounds.Encapsulate(childRenderer.bounds);
-				}
-				else {
-					bounds = childRenderer.bounds;
-					hasBounds = true;
-				}
-			}
-		}
-
-		BoxCollider collider = (BoxCollider)rootGameObject.GetComponent<Collider>();
-		collider.center = bounds.center - rootGameObject.transform.position;
-		collider.size = bounds.size * colliderFactor;
-
-	}
-
     void InstantiatePlayer(string animalType, string animalId, bool isMainPlayer, string animalName) {
 
-        Debug.Log(animalType + animalId + isMainPlayer + animalName);
-        string prefabName = "animals/" + animalType + "/FBX FILES/" + animalType;
+        string prefabPath = "animals/" + animalType + "/FBX FILES/" + animalType;
 
-        GameObject instance = Instantiate(Resources.Load(prefabName, typeof(GameObject))) as GameObject;
-        // instance.transform.position = new Vector3(Random.Range(0, 25f), 5, 5);
-
+        GameObject instance = Instantiate(Resources.Load(prefabPath, typeof(GameObject))) as GameObject;
         players.Add(instance);
 
         Animal player = instance.AddComponent<Animal>();

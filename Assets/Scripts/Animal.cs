@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SimpleJSON;
 
 public class Animal : MonoBehaviour {
 
@@ -10,19 +9,21 @@ public class Animal : MonoBehaviour {
 	public string playerType;
 	public string playerName;
 	public string uuid;
+    public int mass;
 	public bool mainPlayer = false;
 
     float colliderSize = 0.3f;
 
     public Rigidbody currentRb;
 
-    void Awake()
+    void Start()
     {
         transform.localScale = new Vector3(2, 2, 2);
         currentRb = gameObject.AddComponent<Rigidbody>();
         currentRb.detectCollisions = true;
         currentRb.freezeRotation = true;
-        // currentRb.isKinematic = true;
+        currentRb.mass = mass;
+
         foreach (Transform child in GetComponentsInChildren<Transform>(true)) //include inactive
         {
             if (child.gameObject.name.Contains("_"))

@@ -38,7 +38,7 @@ public class Main : MonoBehaviour
 		//Example of polling state 
 		var state = fsm.State;
 
-		GUILayout.BeginArea(new Rect(50,50,600,400));
+		GUILayout.BeginArea(new Rect(30,30,600,400));
 
 		if(state == States.Init && GUILayout.Button("Start"))
 		{
