@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
 	public string walkName = "walk";
 	public string runName = "run";
 
-	public Rigidbody rb;
-	private Animal player;
+	Rigidbody rb;
+	Animal player;
 
 	int patrolSpeed = 30;
 
@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
 	float acceleration = 3.0f;
 
 	void Start() {
-		rb = GetComponent<Rigidbody>();
 		player = this.GetComponent<Animal> ();
+        rb = player.currentRb;
 
 		string animationsData = Read("animations");
 		var data = JSON.Parse(animationsData);
@@ -29,17 +29,11 @@ public class PlayerController : MonoBehaviour
 				idleName = kvp.Value ["idle"].Value;
 				walkName = kvp.Value ["walk"].Value;
 				runName = kvp.Value ["run"].Value;
-				rb.mass = kvp.Value ["mass"].AsInt;
+				// rb.mass = kvp.Value ["mass"].AsInt;
 			}
 		}
-		this.transform.localScale = new Vector3 (2, 2, 2);
-		if (player.mainPlayer) {
-			GameObject mainCamera = GameObject.Find ("Main Camera");
-			CameraFollow cameraFollow = mainCamera.AddComponent<CameraFollow> ();
-			cameraFollow.target = this.gameObject.transform;
-			cameraFollow.offset = new Vector3 (20, 20, -10);
-			cameraFollow.smoothSpeed = 1;
-		}
+		transform.localScale = new Vector3 (2, 2, 2);
+
 	}
 	void FixedUpdate ()
 	{

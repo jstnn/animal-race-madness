@@ -106,13 +106,6 @@
          "mass": 250
       },
       {
-         "type":"STANDARD WOLF",
-         "idle":"idleLookAround",
-         "walk":"walk",
-         "run":"run",
-         "mass": 45
-      },
-      {
          "type":"ZEBRA",
          "idle":"idleLookAround",
          "walk":"walk",
