@@ -17,12 +17,12 @@ public class Main : MonoBehaviour
 
     public int selGridInt = 0;
 
-	public float health = 100;
-	public float damage = 20;
+	public float health = 1000;
+	public float damage = 1;
 
 	float startHealth;
 
-	StateMachine<States> fsm;
+	public StateMachine<States> fsm;
 
 	void Awake()
 	{
@@ -70,7 +70,7 @@ public class Main : MonoBehaviour
 				fsm.ChangeState(States.Win);
 			}
 
-			GUILayout.Label("Health: " + Mathf.Round(health).ToString());
+			GUILayout.Label("Time: " + Mathf.Round(health).ToString());
 		}
 		if(state == States.Win || state == States.Lose)
 		{
@@ -112,7 +112,7 @@ public class Main : MonoBehaviour
 
 	private void Play_Enter()
 	{
-		Debug.Log("FIGHT!");
+		Debug.Log("RUN!");
 	}
 
 	private void Play_Update()

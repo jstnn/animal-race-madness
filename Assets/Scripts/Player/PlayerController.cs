@@ -7,12 +7,17 @@ public class PlayerController : MonoBehaviour
 {
 	Rigidbody rb;
 	Animal player;
+    Animation anim;
+    Main manager;
     int runMinSpeed = 20;
 	float acceleration = 2.0f;
 
+
 	void Start() {
+        manager = GameObject.Find("RaceManager").GetComponent<Main>();
 		player = GetComponent<Animal> ();
         rb = player.currentRb;
+        anim = player.GetComponent<Animation>();
 
 		string animationsData = Read("animations");
 		var data = JSON.Parse(animationsData);
@@ -31,24 +36,26 @@ public class PlayerController : MonoBehaviour
 	}
 	void FixedUpdate ()
 	{
-		Animation anim = player.GetComponent<Animation> ();
-
-		if (player.mainPlayer) {
-            if (Input.GetKeyDown (KeyCode.A) && player.isInGround) {
-                rb.velocity += new Vector3(0,player.force*3,0) + (acceleration * gameObject.transform.forward);
-			}
-			if (Input.GetKeyDown (KeyCode.Space)) {
-                rb.velocity += new Vector3(0,0,player.force) + (acceleration * gameObject.transform.forward);
-			}
-        } 
-        if (!player.mainPlayer){
+        if (player.mainPlayer && manager.fsm.State == Main.States.Play)
+        {
+            if (Input.GetKeyDown(KeyCode.A) && player.isInGround)
+            {
+                rb.velocity += new Vector3(0, player.force * 3, 0) + (acceleration * gameObject.transform.forward);
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.velocity += new Vector3(0, 0, player.force) + (acceleration * gameObject.transform.forward);
+            }
+        }
+        if (!player.mainPlayer && manager.fsm.State == Main.States.Play)
+        {
             var r = Random.Range(0, 100);
             if (r < 5)
             {
                 rb.velocity += new Vector3(0, 0, player.force) + (acceleration * gameObject.transform.forward);
             }
-                
         }
+	
 			
 		// Animations by velocity
 		if (rb.velocity.z == 0) {
