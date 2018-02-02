@@ -28,6 +28,9 @@ public class RaceManager : MonoBehaviour {
 
 
     public void Create () {
+        if (players.Count > 0)
+            Destroy();
+        
         // Instantiate Main Player
         InstantiatePlayer(PlayerPrefs.GetString("playerType"), PlayerPrefs.GetString("playerId"), true, PlayerPrefs.GetString("playerName"));
 
@@ -40,6 +43,14 @@ public class RaceManager : MonoBehaviour {
         PositionPlayers();
 
 	}
+
+    public void Destroy() {
+        players.Clear();
+        foreach (GameObject player in players)
+        {
+            Destroy(player);
+        }
+    }
 
 	void PositionPlayers() {
 		int trackWidth = raceWidth / players.Count;
@@ -65,12 +76,10 @@ public class RaceManager : MonoBehaviour {
         player.mainPlayer = isMainPlayer;
         player.playerName = animalName;
 
+        instance.AddComponent<PlayerController>();
 
         if (player.mainPlayer)
         {
-            // add controls
-            instance.AddComponent<PlayerController>();
-
             // camera follow main player
             CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
             cameraFollow.target = instance.transform;
