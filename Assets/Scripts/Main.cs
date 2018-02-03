@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
+using System.Collections.Generic;
 using MonsterLove.StateMachine;
 
 public class Main : MonoBehaviour
@@ -23,17 +25,37 @@ public class Main : MonoBehaviour
 	float startHealth;
 
 	public StateMachine<States> fsm;
+    RaceManager manager;
 
 	void Awake()
 	{
 		startHealth = health;
-
+       
 		//Initialize State Machine Engine		
 		fsm = StateMachine<States>.Initialize(this, States.Init);
 
 	}
 
-	void OnGUI()
+    private void Start()
+    {
+        manager = GameObject.Find("RaceManager").GetComponent<RaceManager>();
+    }
+
+
+    public string PositionText() {
+        var ordered = manager.positions.OrderBy(x => x.Value.transform.position.z*-1);
+        string text = "";
+        foreach(KeyValuePair<int, GameObject> p in ordered) {
+            Debug.Log(p.Key+" -> "+p.Value);
+            text += "["+p.Key + " -> " + p.Value+"]";
+                
+        }
+        return text;
+    }
+
+    
+
+    void OnGUI()
 	{
 		//Example of polling state 
 		var state = fsm.State;
@@ -70,7 +92,7 @@ public class Main : MonoBehaviour
 				fsm.ChangeState(States.Win);
 			}
 
-			GUILayout.Label("Time: " + Mathf.Round(health).ToString());
+            GUILayout.Label("Time: " + Mathf.Round(health).ToString() + " | " + PositionText());
 		}
 		if(state == States.Win || state == States.Lose)
 		{
@@ -118,6 +140,7 @@ public class Main : MonoBehaviour
 	private void Play_Update()
 	{
 		health -= damage * Time.deltaTime;
+        Debug.Log(manager.positions);
 
 		if(health < 0)
 		{

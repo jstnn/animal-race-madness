@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class RaceManager : MonoBehaviour {
-	public List<GameObject> players = new List<GameObject>();
 
-	public int raceWidth = 25;
-    public int playerCount=4;
-	public int yStartPosition;
-	public int zStartPosition;
-
+    public int raceWidth = 25;
+    public int playerCount = 4;
+    public int yStartPosition;
+    public int zStartPosition;
 
     public static List<string> playerTypeList = new List<string>(); 
-
+    public List<GameObject> players = new List<GameObject>();
+    public Dictionary<int, GameObject> positions = new Dictionary<int, GameObject>();
 
     void Start() {
         // get all animal types from json
@@ -28,8 +27,6 @@ public class RaceManager : MonoBehaviour {
 
 
     public void Create () {
-        if (players.Count > 0)
-            Destroy();
         
         // Instantiate Main Player
         InstantiatePlayer(PlayerPrefs.GetString("playerType"), PlayerPrefs.GetString("playerId"), true, PlayerPrefs.GetString("playerName"));
@@ -69,6 +66,7 @@ public class RaceManager : MonoBehaviour {
 
         GameObject instance = Instantiate(Resources.Load(prefabPath, typeof(GameObject))) as GameObject;
         players.Add(instance);
+        positions.Add(positions.Count+1, instance);
 
         Animal player = instance.AddComponent<Animal>();
         player.playerType = animalType;
