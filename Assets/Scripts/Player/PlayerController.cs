@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 	}
 	void FixedUpdate ()
 	{
+        // MAIN PLAYER
         if (player.mainPlayer && manager.fsm.State == Main.States.Play)
         {
             if (Input.GetKeyDown(KeyCode.A) && player.isInGround)
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity += new Vector3(0, 0, player.force) + (acceleration * gameObject.transform.forward);
             }
         }
+        // NPC
         if (!player.mainPlayer && manager.fsm.State == Main.States.Play)
         {
             var r = Random.Range(0, 100);

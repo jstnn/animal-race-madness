@@ -50,6 +50,7 @@ public class Animal : MonoBehaviour {
         {
             if (child.gameObject.name.Contains("_"))
             {
+                child.gameObject.tag = "Player";
                 BoxCollider joint = child.gameObject.AddComponent<BoxCollider>();
                 joint.size = new Vector3(colliderSize, colliderSize, colliderSize);
             }

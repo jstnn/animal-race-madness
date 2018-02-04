@@ -27,6 +27,7 @@ public class RaceManager : MonoBehaviour {
 
 
     public void Create () {
+        Destroy();
         
         // Instantiate Main Player
         InstantiatePlayer(PlayerPrefs.GetString("playerType"), PlayerPrefs.GetString("playerId"), true, PlayerPrefs.GetString("playerName"));
@@ -65,6 +66,7 @@ public class RaceManager : MonoBehaviour {
         string prefabPath = "animals/" + animalType + "/FBX FILES/" + animalType;
 
         GameObject instance = Instantiate(Resources.Load(prefabPath, typeof(GameObject))) as GameObject;
+        // instance.tag = "Player";
         players.Add(instance);
         positions.Add(positions.Count+1, instance);
 

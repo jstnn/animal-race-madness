@@ -45,9 +45,9 @@ public class Main : MonoBehaviour
     public string PositionText() {
         var ordered = manager.positions.OrderBy(x => x.Value.transform.position.z*-1);
         string text = "";
+        int i = 1;
         foreach(KeyValuePair<int, GameObject> p in ordered) {
-            Debug.Log(p.Key+" -> "+p.Value);
-            text += "["+p.Key + " -> " + p.Value+"]";
+            text += "\n"+ i++ + " -> " + (p.Value.GetComponent<Animal>().mainPlayer ? "*** ": "") + p.Value.name.Replace("(Clone)", "");
                 
         }
         return text;
@@ -92,7 +92,7 @@ public class Main : MonoBehaviour
 				fsm.ChangeState(States.Win);
 			}
 
-            GUILayout.Label("Time: " + Mathf.Round(health).ToString() + " | " + PositionText());
+            GUILayout.Label("Time: " + Mathf.Round(health).ToString() + PositionText());
 		}
 		if(state == States.Win || state == States.Lose)
 		{
@@ -140,7 +140,6 @@ public class Main : MonoBehaviour
 	private void Play_Update()
 	{
 		health -= damage * Time.deltaTime;
-        Debug.Log(manager.positions);
 
 		if(health < 0)
 		{
