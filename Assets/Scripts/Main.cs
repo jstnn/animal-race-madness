@@ -25,7 +25,8 @@ public class Main : MonoBehaviour
 	float startHealth;
 
 	public StateMachine<States> fsm;
-    RaceManager manager;
+    RaceManager raceManager;
+    CameraManager cameraManager;
 
 	void Awake()
 	{
@@ -36,14 +37,15 @@ public class Main : MonoBehaviour
 
 	}
 
-    private void Start()
+    void Start()
     {
-        manager = GameObject.Find("RaceManager").GetComponent<RaceManager>();
+        raceManager = GetComponent<RaceManager>();
+        cameraManager = GetComponent<CameraManager>();
     }
 
 
     public string PositionText() {
-        var ordered = manager.positions.OrderBy(x => x.Value.transform.position.z*-1);
+        var ordered = raceManager.positions.OrderBy(x => x.Value.transform.position.z*-1);
         string text = "";
         int i = 1;
         foreach(KeyValuePair<int, GameObject> p in ordered) {
@@ -100,22 +102,30 @@ public class Main : MonoBehaviour
 			{
 				fsm.ChangeState(States.Countdown);
 			}
+
+            if (GUILayout.Button("SelectPlayer"))
+            {
+                fsm.ChangeState(States.Select);
+            }
 		}
 
 		GUILayout.EndArea();
 	}
 
-	private void Init_Enter()
+	void Init_Enter()
 	{
 		Debug.Log("Waiting for start button to be pressed");
+
+
 	}
 
-    private void Select_Enter() {
+    void Select_Enter() {
+        cameraManager.SwitchToSelection();
        
     }
 
 	//We can return a coroutine, this is useful animations and the like
-	private IEnumerator Countdown_Enter()
+	IEnumerator Countdown_Enter()
 	{
         GameObject.Find("RaceManager").GetComponent<RaceManager>().Create();
 		health = startHealth;
@@ -132,12 +142,13 @@ public class Main : MonoBehaviour
 	}
 
 
-	private void Play_Enter()
+	void Play_Enter()
 	{
+        // cameraManager.SwitchToRace();
 		Debug.Log("RUN!");
 	}
 
-	private void Play_Update()
+	void Play_Update()
 	{
 		health -= damage * Time.deltaTime;
 
@@ -150,6 +161,7 @@ public class Main : MonoBehaviour
 	void Play_Exit()
 	{
 		Debug.Log("Game Over");
+        cameraManager.SwitchToGeneral();
 	}
 
 	void Lose_Enter()

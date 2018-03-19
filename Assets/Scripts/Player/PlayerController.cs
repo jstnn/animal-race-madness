@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
 	Animal player;
     Animation anim;
     Main manager;
+    int walkMinSpeed = 1;
     int runMinSpeed = 20;
-	float acceleration = 2.0f;
-
+	float acceleration = 4.0f;
 
 	void Start() {
         manager = GameObject.Find("RaceManager").GetComponent<Main>();
@@ -39,13 +39,15 @@ public class PlayerController : MonoBehaviour
         // MAIN PLAYER
         if (player.mainPlayer && manager.fsm.State == Main.States.Play)
         {
+            // JUMP
             if (Input.GetKeyDown(KeyCode.A) && player.isInGround)
             {
-                rb.velocity += new Vector3(0, player.force * 3, 0) + (acceleration * gameObject.transform.forward);
+                rb.velocity += new Vector3(0, player.force*acceleration, player.force) + (acceleration * gameObject.transform.forward);
             }
+            // ADVANCE FORWARD
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                rb.velocity += new Vector3(0, 0, player.force) + (acceleration * gameObject.transform.forward);
+                rb.velocity += new Vector3(0, 0, player.force * acceleration) + (acceleration * gameObject.transform.forward);
             }
         }
         // NPC
@@ -60,10 +62,10 @@ public class PlayerController : MonoBehaviour
 	
 			
 		// Animations by velocity
-		if (rb.velocity.z == 0) {
+        if (rb.velocity.z < walkMinSpeed) {
 			anim.CrossFade(player.idleName);
 		}
-        else if (rb.velocity.z > 0 && rb.velocity.z <= runMinSpeed) {
+        else if (rb.velocity.z > walkMinSpeed && rb.velocity.z <= runMinSpeed) {
 			anim.CrossFade(player.walkName);
 		}
         else if (rb.velocity.z > runMinSpeed) {

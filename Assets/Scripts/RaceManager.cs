@@ -13,8 +13,11 @@ public class RaceManager : MonoBehaviour {
     public List<GameObject> players = new List<GameObject>();
     public Dictionary<int, GameObject> positions = new Dictionary<int, GameObject>();
 
+    CameraManager cameraManager;
+
     void Start() {
-        // get all animal types from json
+        cameraManager = GetComponent<CameraManager>();
+
         string playersData = PlayerController.Read("animations");
         var data = JSON.Parse(playersData);
         var types = data["playerTypes"];
@@ -43,11 +46,12 @@ public class RaceManager : MonoBehaviour {
 	}
 
     public void Destroy() {
-        players.Clear();
         foreach (GameObject player in players)
         {
             Destroy(player);
         }
+        players.Clear();
+        positions.Clear();
     }
 
 	void PositionPlayers() {
@@ -77,12 +81,14 @@ public class RaceManager : MonoBehaviour {
         player.playerName = animalName;
 
         instance.AddComponent<PlayerController>();
+       
 
         if (player.mainPlayer)
         {
+            instance.AddComponent<UnityEngine.AI.NavMeshAgent>();
+            instance.AddComponent<MoveToClickPoint>();
             // camera follow main player
-            CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
-            cameraFollow.target = instance.transform;
+            cameraManager.SwitchToRace(instance);
         }
 
     }

@@ -54,6 +54,11 @@ public class Animal : MonoBehaviour {
                 BoxCollider joint = child.gameObject.AddComponent<BoxCollider>();
                 joint.size = new Vector3(colliderSize, colliderSize, colliderSize);
             }
+            if (child.gameObject.name.Contains("Spine"))
+            {
+                BoxCollider joint = child.gameObject.GetComponent<BoxCollider>();
+                joint.size = new Vector3(1.2f, 0.5f, 0.5f);
+            }
         }
     }
 
