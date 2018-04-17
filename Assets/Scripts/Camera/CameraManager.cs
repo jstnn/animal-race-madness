@@ -5,26 +5,39 @@ public class CameraManager : MonoBehaviour {
     public Camera generalCamera;
     public Camera selectionCamera;
     public Camera raceCamera;
+
+    void OnEnable()
+    {
+        EventsManager.SwitchToGeneralCamEvent += SwitchToGeneralCamEvent;
+        EventsManager.SwitchToSelectionCamEvent += SwitchToSelectionCamEvent;
+        EventsManager.SwitchToRaceCamEvent += SwitchToRaceCamEvent;
+    }
+    void OnDisable()
+    {
+        EventsManager.SwitchToGeneralCamEvent -= SwitchToGeneralCamEvent;
+        EventsManager.SwitchToSelectionCamEvent -= SwitchToSelectionCamEvent;
+        EventsManager.SwitchToRaceCamEvent -= SwitchToRaceCamEvent;
+    }
  
     void Start()
     {
-        SwitchToGeneral();
+        SwitchToGeneralCamEvent();
     }
 
-    public void SwitchToGeneral() {
+    public void SwitchToGeneralCamEvent() {
         generalCamera.enabled = true;
         selectionCamera.enabled = false;
         raceCamera.enabled = false;
     }
 
-    public void SwitchToSelection()
+    public void SwitchToSelectionCamEvent()
     {
         generalCamera.enabled = false;
         selectionCamera.enabled = true;
         raceCamera.enabled = false;
     }
 
-    public void SwitchToRace(GameObject player)
+    public void SwitchToRaceCamEvent(GameObject player)
     {
         generalCamera.enabled = false;
         selectionCamera.enabled = false;

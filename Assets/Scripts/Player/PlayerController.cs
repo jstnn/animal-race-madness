@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ARM;
 using System.Collections;
 using System.Collections.Generic;
 using SimpleJSON;
@@ -6,7 +7,7 @@ using SimpleJSON;
 public class PlayerController : MonoBehaviour
 {
 	Rigidbody rb;
-	Animal player;
+    Player player;
     Animation anim;
     Main manager;
     int walkMinSpeed = 1;
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
 	void Start() {
         manager = GameObject.Find("RaceManager").GetComponent<Main>();
-		player = GetComponent<Animal> ();
+        player = GetComponent<Player> ();
         rb = player.currentRb;
         anim = player.GetComponent<Animation>();
 
@@ -36,6 +37,20 @@ public class PlayerController : MonoBehaviour
 	}
 	void FixedUpdate ()
 	{
+        // Animations by velocity
+        if (rb.velocity.z < walkMinSpeed)
+        {
+            anim.CrossFade(player.idleName);
+        }
+        if (rb.velocity.z > walkMinSpeed && rb.velocity.z <= runMinSpeed)
+        {
+            anim.CrossFade(player.walkName);
+        }
+        if (rb.velocity.z > runMinSpeed)
+        {
+            anim.CrossFade(player.runName);
+        }
+
         // MAIN PLAYER
         if (player.mainPlayer && manager.fsm.State == Main.States.Play)
         {
@@ -47,30 +62,28 @@ public class PlayerController : MonoBehaviour
             // ADVANCE FORWARD
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                rb.velocity += new Vector3(0, 0, player.force * acceleration) + (acceleration * gameObject.transform.forward);
+                rb.velocity += Vector3.up + (acceleration * gameObject.transform.forward);
             }
-        }
-        // NPC
-        if (!player.mainPlayer && manager.fsm.State == Main.States.Play)
-        {
-            var r = Random.Range(0, 100);
-            if (r < 5)
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                rb.velocity += new Vector3(0, 0, player.force) + (acceleration * gameObject.transform.forward);
+                rb.transform.Rotate(-Vector3.up, acceleration * runMinSpeed * Time.deltaTime);
             }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rb.transform.Rotate(Vector3.up, acceleration * runMinSpeed * Time.deltaTime);
+            }  
         }
-	
-			
-		// Animations by velocity
-        if (rb.velocity.z < walkMinSpeed) {
-			anim.CrossFade(player.idleName);
-		}
-        else if (rb.velocity.z > walkMinSpeed && rb.velocity.z <= runMinSpeed) {
-			anim.CrossFade(player.walkName);
-		}
-        else if (rb.velocity.z > runMinSpeed) {
-			anim.CrossFade(player.runName);
-		}
+        
+        //// NPC
+        //if (!player.mainPlayer && manager.fsm.State == Main.States.Play)
+        //{
+        //    var r = Random.Range(0, 100);
+        //    if (r < 5)
+        //    {
+        //        rb.velocity += new Vector3(0, 0, player.force) + (acceleration * gameObject.transform.forward);
+        //    }
+        //}
+
 	}
 	public static string Read(string filename) {
 		//Load the text file using Reources.Load

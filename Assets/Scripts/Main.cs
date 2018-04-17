@@ -3,174 +3,118 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using MonsterLove.StateMachine;
-
-public class Main : MonoBehaviour
+namespace ARM
 {
-	//Declare which states we'd like use
-	public enum States
-	{
-		Init,
-        Select,
-		Countdown,
-		Play,
-		Win,
-		Lose
-	}
-
-    public int selGridInt = 0;
-
-	public float health = 1000;
-	public float damage = 1;
-
-	float startHealth;
-
-	public StateMachine<States> fsm;
-    RaceManager raceManager;
-    CameraManager cameraManager;
-
-	void Awake()
-	{
-		startHealth = health;
-       
-		//Initialize State Machine Engine		
-		fsm = StateMachine<States>.Initialize(this, States.Init);
-
-	}
-
-    void Start()
+    public class Main : MonoBehaviour
     {
-        raceManager = GetComponent<RaceManager>();
-        cameraManager = GetComponent<CameraManager>();
-    }
-
-
-    public string PositionText() {
-        var ordered = raceManager.positions.OrderBy(x => x.Value.transform.position.z*-1);
-        string text = "";
-        int i = 1;
-        foreach(KeyValuePair<int, GameObject> p in ordered) {
-            text += "\n"+ i++ + " -> " + (p.Value.GetComponent<Animal>().mainPlayer ? "*** ": "") + p.Value.name.Replace("(Clone)", "");
-                
-        }
-        return text;
-    }
-
-    
-
-    void OnGUI()
-	{
-		//Example of polling state 
-		var state = fsm.State;
-
-		GUILayout.BeginArea(new Rect(30,30,600,400));
-
-		if(state == States.Init && GUILayout.Button("Start"))
-		{
-            fsm.ChangeState(States.Select);
-		}
-        if (state == States.Select)
+        //Declare which states we'd like use
+        public enum States
         {
-            GUILayout.Label("Select your dude");
-            GUILayout.BeginVertical("Box");
-            selGridInt = GUILayout.SelectionGrid(selGridInt, RaceManager.playerTypeList.ToArray(), 5);
-            if (GUILayout.Button("Start")) {
-                string choosenType = RaceManager.playerTypeList.ToArray()[selGridInt];
-                PlayerPrefs.SetString("playerId", System.Guid.NewGuid().ToString());
-                PlayerPrefs.SetString("playerType", choosenType);
-                PlayerPrefs.SetString("playerName", "Vicente");
-                Debug.Log("You choose " + choosenType);
-                fsm.ChangeState(States.Countdown);
-            }
-            GUILayout.EndVertical();
+            Init,
+            Select,
+            Countdown,
+            Play,
+            Win,
+            Lose
         }
-        if(state == States.Countdown)
-		{
-            GUILayout.Label("Look at Console");
-		}
-		if(state == States.Play)
-		{
-			if(GUILayout.Button("Force Win"))
-			{
-				fsm.ChangeState(States.Win);
-			}
+        public StateMachine<States> fsm;
+        float currentTime = 0;
+        float maxTime = 30;
+        RaceManager raceManager;
 
-            GUILayout.Label("Time: " + Mathf.Round(health).ToString() + PositionText());
-		}
-		if(state == States.Win || state == States.Lose)
-		{
-			if(GUILayout.Button("Play Again"))
-			{
-				fsm.ChangeState(States.Countdown);
-			}
+        void Awake()
+        {
+            //Initialize State Machine Engine		
+            fsm = StateMachine<States>.Initialize(this, States.Init);
 
-            if (GUILayout.Button("SelectPlayer"))
+        }
+
+        void Start()
+        {
+            raceManager = GetComponent<RaceManager>();
+        }
+
+
+        public string PositionText()
+        {
+            var ordered = raceManager.positions.OrderBy(x => x.Value.transform.position.z * -1);
+            string text = "";
+            int i = 1;
+            foreach (KeyValuePair<int, GameObject> p in ordered)
             {
-                fsm.ChangeState(States.Select);
+                text += "\n" + i++ + " -> " + (p.Value.GetComponent<Player>().mainPlayer ? "*** " : "") + p.Value.name.Replace("(Clone)", "");
+
             }
-		}
+            return text;
+        }
 
-		GUILayout.EndArea();
-	}
+        void Init_Enter()
+        {
+            Debug.Log("Waiting for start button to be pressed");
+        }
 
-	void Init_Enter()
-	{
-		Debug.Log("Waiting for start button to be pressed");
+        void Select_Enter()
+        {
+            EventsManager.SwitchToSelectionCam();
+            EventsManager.UpdateTimeText("");
+            EventsManager.UpdateCenterText("");
+            EventsManager.ResetPlayers();
+        }
+
+        //We can return a coroutine, this is useful animations and the like
+        IEnumerator Countdown_Enter()
+        {
+            GameObject.Find("RaceManager").GetComponent<RaceManager>().Create();
+            EventsManager.UpdateTimeText("");
+            EventsManager.UpdateCenterText("Starting in 3...");
+            yield return new WaitForSeconds(0.5f);
+            EventsManager.UpdateCenterText("Starting in 2...");
+            yield return new WaitForSeconds(0.5f);
+            EventsManager.UpdateCenterText("Starting in 1...");
+            yield return new WaitForSeconds(0.5f);
+
+            fsm.ChangeState(States.Play);
+
+            EventsManager.UpdateCenterText("Run");
+            yield return new WaitForSeconds(0.1f);
+
+        }
 
 
-	}
+        void Play_Enter()
+        {
+            EventsManager.UpdateCenterText("");
+            currentTime = maxTime;
+        }
 
-    void Select_Enter() {
-        cameraManager.SwitchToSelection();
-       
+        void Play_Update()
+        {
+            EventsManager.UpdatePositionText(PositionText());
+            currentTime -= 1 * Time.deltaTime;
+            EventsManager.UpdateTimeText("Time left: " + Mathf.Round(currentTime).ToString());
+
+            if (currentTime < 0)
+            {
+                fsm.ChangeState(States.Lose);
+            }
+        }
+
+        void Play_Exit()
+        {
+            EventsManager.UpdateCenterText("Game Over");
+            EventsManager.SwitchToGeneralCam();
+        }
+
+        void Lose_Enter()
+        {
+            EventsManager.UpdateCenterText("You suck");
+            EventsManager.EndGameUi();
+
+        }
+
+        void Win_Enter()
+        {
+            EventsManager.UpdateCenterText("You won bitch");
+        }
     }
-
-	//We can return a coroutine, this is useful animations and the like
-	IEnumerator Countdown_Enter()
-	{
-        GameObject.Find("RaceManager").GetComponent<RaceManager>().Create();
-		health = startHealth;
-
-		Debug.Log("Starting in 3...");
-		yield return new WaitForSeconds(0.5f);
-		Debug.Log("Starting in 2...");
-		yield return new WaitForSeconds(0.5f);
-		Debug.Log("Starting in 1...");
-		yield return new WaitForSeconds(0.5f);
-
-		fsm.ChangeState(States.Play);
-
-	}
-
-
-	void Play_Enter()
-	{
-        // cameraManager.SwitchToRace();
-		Debug.Log("RUN!");
-	}
-
-	void Play_Update()
-	{
-		health -= damage * Time.deltaTime;
-
-		if(health < 0)
-		{
-			fsm.ChangeState(States.Lose);
-		}
-	}
-
-	void Play_Exit()
-	{
-		Debug.Log("Game Over");
-        cameraManager.SwitchToGeneral();
-	}
-
-	void Lose_Enter()
-	{
-		Debug.Log("Lost");
-	}
-
-	void Win_Enter()
-	{
-		Debug.Log("Won");
-	}
 }
