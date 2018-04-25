@@ -19,7 +19,7 @@ namespace ARM
         }
         public StateMachine<States> fsm;
         float currentTime = 0;
-        float maxTime = 30;
+        float maxTime = 3000;
         RaceManager raceManager;
 
         void Awake()
@@ -50,7 +50,9 @@ namespace ARM
 
         void Init_Enter()
         {
+            EventsManager.SwitchToGeneralCam();
             Debug.Log("Waiting for start button to be pressed");
+
         }
 
         void Select_Enter()
@@ -115,6 +117,23 @@ namespace ARM
         void Win_Enter()
         {
             EventsManager.UpdateCenterText("You won bitch");
+        }
+
+        public static string GetStringFromFile(string filename)
+        {
+            //Load the text file using Reources.Load
+            TextAsset theTextFile = Resources.Load<TextAsset>(filename);
+
+            //There's a text file named filename, lets get it's contents and return it
+            if (theTextFile != null)
+            {
+                return theTextFile.text;
+            }
+            else
+            {
+                //There's no file, return an empty string.
+                return "";
+            }
         }
     }
 }

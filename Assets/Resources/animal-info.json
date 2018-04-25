@@ -1,0 +1,148 @@
+{
+  "animals": [
+    {
+      "type": "BEAR",
+      "idle": "idle2Legs",
+      "walk": "walk",
+      "run": "run",
+      "mass": 270,
+      "force": 2,
+      "speed": 35
+    },
+    {
+      "type": "BOAR",
+      "idle": "idle1",
+      "walk": "walk",
+      "run": "run",
+      "mass": 50,
+      "force": 2,
+      "speed": 18
+    },
+    {
+      "type": "CHICKEN",
+      "idle": "idleEat",
+      "walk": "walk",
+      "run": "runAngry",
+      "mass": 5,
+      "force": 1,
+      "speed": 14.48
+    },
+    {
+      "type": "COW",
+      "idle": "idle1",
+      "walk": "walk",
+      "run": "run",
+      "mass": 600,
+      "force": 2,
+      "speed": 60
+    },
+    {
+      "type": "CROCODILE",
+      "idle": "idleStand",
+      "walk": "walk",
+      "run": "runBite",
+      "mass": 800,
+      "force": 2,
+      "speed": 30
+    },
+    {
+      "type": "ELEPHANT",
+      "idle": "idleLookAround",
+      "walk": "walk",
+      "run": "amble",
+      "mass": 3000,
+      "force": 2,
+      "speed": 40
+    },
+    {
+      "type": "FOX",
+      "idle": "idle1",
+      "walk": "walk",
+      "run": "run",
+      "mass": 8,
+      "force": 5,
+      "speed": 119.3
+    },
+    {
+      "type": "GOAT",
+      "idle": "idleBreathe",
+      "walk": "walk",
+      "run": "run",
+      "mass": 140,
+      "force": 2,
+      "speed": 17
+    },
+    {
+      "type": "HIPPOPOTAMUS",
+      "idle": "idle1",
+      "walk": "walk",
+      "run": "run",
+      "mass": 1500,
+      "force": 2,
+      "speed": 30
+    },
+    {
+      "type": "LION",
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "mass": 250,
+      "force": 5,
+      "speed": 80
+    },
+    {
+      "type": "PIG",
+      "idle": "idle1",
+      "walk": "walk",
+      "run": "run",
+      "mass": 250,
+      "force": 2,
+      "speed": 17.7
+    },
+    {
+      "type": "RABBIT",
+      "idle": "idle1",
+      "walk": "hop",
+      "run": "run",
+      "mass": 2,
+      "force": 4,
+      "speed": 48
+    },
+    {
+      "type": "RHINOCEROS",
+      "idle": "idleBreathe",
+      "walk": "walk",
+      "run": "run",
+      "mass": 1500,
+      "force": 2,
+      "speed": 55
+    },
+    {
+      "type": "SHEEP",
+      "idle": "idle1",
+      "walk": "walk",
+      "run": "run",
+      "mass": 120,
+      "force": 2,
+      "speed": 32
+    },
+    {
+      "type": "STAG",
+      "idle": "idle1",
+      "walk": "walk",
+      "run": "run",
+      "mass": 250,
+      "force": 2,
+      "speed": 98
+    },
+    {
+      "type": "ZEBRA",
+      "idle": "idleLookAround",
+      "walk": "walk",
+      "run": "galop",
+      "mass": 350,
+      "force": 2,
+      "speed": 64.4
+    }
+  ]
+}
