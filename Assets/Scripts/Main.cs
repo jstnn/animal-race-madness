@@ -62,24 +62,24 @@ namespace ARM
             EventsManager.UpdateCenterText("");
             EventsManager.ResetPlayers();
         }
-
+        
         //We can return a coroutine, this is useful animations and the like
         IEnumerator Countdown_Enter()
         {
             GameObject.Find("RaceManager").GetComponent<RaceManager>().Create();
             EventsManager.UpdateTimeText("");
+			yield return new WaitForSeconds(5f);
+			EventsManager.StartRace();
+			yield return new WaitForSeconds(0.1f);
             EventsManager.UpdateCenterText("Starting in 3...");
             yield return new WaitForSeconds(0.5f);
             EventsManager.UpdateCenterText("Starting in 2...");
             yield return new WaitForSeconds(0.5f);
             EventsManager.UpdateCenterText("Starting in 1...");
             yield return new WaitForSeconds(0.5f);
-
+			EventsManager.UpdateCenterText("Run");
             fsm.ChangeState(States.Play);
-
-            EventsManager.UpdateCenterText("Run");
-            yield return new WaitForSeconds(0.1f);
-
+            
         }
 
 
@@ -110,7 +110,7 @@ namespace ARM
         void Lose_Enter()
         {
             EventsManager.UpdateCenterText("You suck");
-            EventsManager.EndGameUi();
+			EventsManager.SwitchUiContext("finish");
 
         }
 

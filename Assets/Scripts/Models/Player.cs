@@ -7,6 +7,7 @@ namespace ARM
     public class Animal
     {
         public string name;
+		public int position;
     }
 
     public class Player : MonoBehaviour
@@ -17,9 +18,9 @@ namespace ARM
         public string playerType;
         public string playerName;
         public string uuid;
-        public int mass;
-        public int force;
-        public int speed;
+        public float mass;
+        public float force;
+        public float speed;
         public bool mainPlayer;
         public bool isInGround;
         public string idleName;
@@ -38,9 +39,9 @@ namespace ARM
             playerType = "PIG";
             playerName = "Unknown";
             experience = 1;
-            mass = 1;
-            force = 1;
-            speed = 10;
+            mass = 1f;
+            force = 1f;
+            speed = 10f;
             mainPlayer = false;
             isInGround = false;
             idleName = "idle";
@@ -56,11 +57,12 @@ namespace ARM
             currentRb.detectCollisions = true;
             currentRb.freezeRotation = true;
             currentRb.mass = mass;
-            currentRb.drag = 0;
+            currentRb.drag = 5f;
+            currentRb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
             foreach (Transform child in GetComponentsInChildren<Transform>(true)) //include inactive
             {
-                if (child.gameObject.name.Contains("_"))
+                if (child.gameObject.name.Contains("_") && !child.gameObject.name.Contains("Footsteps"))
                 {
                     child.gameObject.tag = "Player";
                     BoxCollider joint = child.gameObject.AddComponent<BoxCollider>();

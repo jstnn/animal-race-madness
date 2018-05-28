@@ -1,0 +1,25 @@
+<SelectAnimal xmlns="MarkLight">
+  <Group>
+      <TabPanel Id="TabPanel" Width="800" Height="600">
+        <Tab Text="Select Animal">
+          <TabHeader />
+            <Group Orientation="Horizontal" ContentAlignment="Left">
+                <List Id="AnimalsList" Items="{Animals}" ItemSelected="AnimalSelected" Width="200" Height="500" Margin="20" IsScrollable="True">
+                    <ListItem Text="{#Item.name}" IsTemplate="True" />
+                </List>
+                <Group Orientation="Vertical" ContentAlignment="Left" Width="580" Height="500">
+                   <Label Text="Select an Animal" Id="animalInfo"/>
+                   <Group Orientation="Horizontal" Spacing="15px">
+                        <Button Text="Select" Click="StartRace"/>
+                        <Button Text="Back" Click="Back"/> 
+                    </Group>
+                </Group>
+            </Group>
+        </Tab>
+        <Tab Text="Save Animal">
+          <TabHeader />
+          <Label Text="Tab 2" AdjustToText="Width" />
+        </Tab>
+      </TabPanel>
+  </Group>  
+</SelectAnimal>

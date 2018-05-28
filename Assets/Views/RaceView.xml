@@ -1,0 +1,16 @@
+<RaceView>
+    <Leaderboard IsActive="{_enableLeaderboard}" />
+    <Group Alignment="BottomLeft" ContentAlignment="Center">
+        <Label Text="LAPS: 1/10"/>
+        <Button Text="Restart" Click="Restart" Id="RestartButton" />
+    </Group>
+    <Group Alignment="Bottom" ContentAlignment="Center">
+        <Label Text="Time" Id="TimeText"/>
+    </Group>
+    <Group Alignment="BottomRight" ContentAlignment="Center">
+        <Label Text="Position" Id="PositionText"  Height="300" />
+    </Group>
+    <Group Alignment="Center">
+       <Label Id="CenterText"></Label>
+    </Group>
+</RaceView>

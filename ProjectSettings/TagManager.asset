@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floor
   - Waypoint
+  - Waypoint_Forward
+  - Waypoint_Backward
   layers:
   - Default
   - TransparentFX

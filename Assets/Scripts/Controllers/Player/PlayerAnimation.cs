@@ -8,8 +8,8 @@ public class PlayerAnimation : MonoBehaviour {
     Player player;
     Rigidbody rigidBody;
     Animation anim;
-    int thresholdWalkVelocity = 0;
-    int thresholdRunVelocity = 10;
+    float thresholdWalkVelocity = 100f;
+    float thresholdRunVelocity = 1000f;
 
 	private void Start()
 	{
@@ -33,16 +33,20 @@ public class PlayerAnimation : MonoBehaviour {
 
 	void FixedUpdate()
     {
+        if (player.mainPlayer) {
+            // Debug.Log($"V: {rigidBody.velocity.sqrMagnitude}");
+        }
+
         // Animations by velocity
-        if (rigidBody.velocity.magnitude < thresholdWalkVelocity)
+		if (rigidBody.velocity.sqrMagnitude < thresholdWalkVelocity)
         {
             anim.CrossFade(player.idleName);
         }
-        if (rigidBody.velocity.magnitude > thresholdWalkVelocity && rigidBody.velocity.magnitude <= thresholdRunVelocity)
+		if (rigidBody.velocity.sqrMagnitude > thresholdWalkVelocity && rigidBody.velocity.sqrMagnitude <= thresholdRunVelocity)
         {
             anim.CrossFade(player.walkName);
         }
-        if (rigidBody.velocity.magnitude > thresholdRunVelocity)
+		if (rigidBody.velocity.sqrMagnitude > thresholdRunVelocity)
         {
             anim.CrossFade(player.runName);
         }

@@ -8,16 +8,14 @@ namespace ARM
     public class RaceManager : MonoBehaviour
     {
 
-        public int raceWidth = 25;
-        public int playerCount = 4;
-        public int yStartPosition;
-        public int zStartPosition;
+        int raceWidth = 25;
+        int playerCount = 4;
+        int yStartPosition = 2;
+        int zStartPosition = 0;
 
         public static List<string> playerTypeList = new List<string>();
         public List<GameObject> players = new List<GameObject>();
         public Dictionary<int, GameObject> positions = new Dictionary<int, GameObject>();
-
-        CameraManager cameraManager;
 
         void OnEnable()
         {
@@ -31,8 +29,6 @@ namespace ARM
 
         void Awake()
         {
-            cameraManager = GetComponent<CameraManager>();
-
             string playersData = Main.GetStringFromFile("animal-info");
             var data = JSON.Parse(playersData);
             var types = data["animals"];
@@ -104,6 +100,7 @@ namespace ARM
             if (player.mainPlayer) {
                 EventsManager.SwitchToRaceCam(instance);
                 instance.AddComponent<PlayerController>();
+				instance.AddComponent<PushBack>();
             } else {
                 instance.AddComponent<NPCController>();
             }

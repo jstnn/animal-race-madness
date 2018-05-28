@@ -29,14 +29,6 @@ public class EventsManager : MonoBehaviour {
             UpdateTimeTextEvent(text);
     }
 
-    public delegate void EndGameUiDelegate();
-    public static event EndGameUiDelegate EndGameUiEvent;
-    public static void EndGameUi()
-    {
-        if (EndGameUiEvent != null)
-            EndGameUiEvent();
-    }
-
     public delegate void ResetPlayersDelegate();
     public static event ResetPlayersDelegate ResetPlayersEvent;
     public static void ResetPlayers()
@@ -69,6 +61,22 @@ public class EventsManager : MonoBehaviour {
     {
         if (SwitchToRaceCamEvent != null)
             SwitchToRaceCamEvent(player);
+    }
+
+	public delegate void StartRaceDelegate();
+    public static event StartRaceDelegate StartRaceEvent;
+    public static void StartRace()
+    {
+        if (StartRaceEvent != null)
+            StartRaceEvent();
+    }
+
+	public delegate void SwitchUiContextDelegate(string context);
+    public static event SwitchUiContextDelegate SwitchUiContextEvent;
+    public static void SwitchUiContext(string context)
+    {
+        if (SwitchUiContextEvent != null)
+            SwitchUiContextEvent(context);
     }
 
 

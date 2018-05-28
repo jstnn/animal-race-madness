@@ -1,0 +1,16 @@
+<Leaderboard xmlns="MarkLight">
+  <Group Orientation="Horizontal" Spacing="15px" ContentAlignment="Top">
+
+    <DataGrid Id="DataGrid" Width="500" Items="{players}" ItemSelected="ItemSelected" IsScrollable="True" ListHeight="300">
+      <RowHeader>
+        <ColumnHeader Width="*" Text="Player" />
+        <ColumnHeader Width="*" Text="Position" />
+      </RowHeader>
+
+      <Row IsTemplate="True">
+        <Column Text="{#Item.name}" />
+        <Column Text="{=#Item.position}" />
+      </Row>
+    </DataGrid>
+  </Group>
+</Leaderboard>

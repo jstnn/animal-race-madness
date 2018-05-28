@@ -16,20 +16,19 @@ public class NPCController : MonoBehaviour
 
     public List<Transform> waypoints;
     public float waypointRadius = 1.5f;
-    public float damping = 0.1f;
+    public float damping = 1f;
     public bool loop = false;
-    public float speed = 2.0f;
+    float speed;
     public bool faceHeading  = true;
 
     private Vector3 currentHeading, targetHeading;
     private int targetwaypoint;
     private Transform xform;
     private bool useRigidbody;
-    private Rigidbody rigidmember;
+    private Rigidbody rigidBody;
 
     Main manager;
     Player player;
-    int speedRatio = 50;
 
     // Use this for initialization
     protected void Start()
@@ -45,21 +44,23 @@ public class NPCController : MonoBehaviour
         {
             if (player.playerType == kvp.Value["type"].Value)
             {
-                speed = kvp.Value["speed"].AsInt / speedRatio;
+                speed = kvp.Value["speed"].AsFloat;
+                //Debug.Log(kvp.Value["type"].Value + ": " + speed.ToString());
             }
         }
         waypoints = new List<Transform>();
-        faceHeading = false;
-        damping = 0.1f;
+        // faceHeading = false;
+        damping = 0.01f;
         loop = true;
-        waypointRadius = 7f;
+        waypointRadius = 20f;
         List<GameObject> waypointObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Waypoint")).OrderBy(go => go.name).ToList();
         foreach (var item in waypointObjects)
         {
             waypoints.Add(item.transform);
 
         }
-        /// //////////////&///////////////
+
+        /////////////////&///////////////
         xform = transform;
         currentHeading = xform.forward;
         if (waypoints.Count <= 0)
@@ -71,7 +72,7 @@ public class NPCController : MonoBehaviour
         if (GetComponent<Rigidbody>() != null)
         {
             useRigidbody = true;
-            rigidmember = GetComponent<Rigidbody>();
+            rigidBody = GetComponent<Rigidbody>();
         }
         else
         {
@@ -83,18 +84,24 @@ public class NPCController : MonoBehaviour
     // calculates a new heading
     protected void FixedUpdate()
     {
-        targetHeading = waypoints[targetwaypoint].position - xform.position;
+        if (manager.fsm.State == Main.States.Play) {
+            targetHeading = waypoints[targetwaypoint].position - xform.position;
 
-        currentHeading = Vector3.Lerp(currentHeading, targetHeading, Time.deltaTime);
+            currentHeading = Vector3.Lerp(currentHeading, targetHeading, Time.deltaTime);
+        }
+
     }
 
     // moves us along current heading
     protected void Update()
     {
-        if (useRigidbody && manager.fsm.State == Main.States.Play)
-            rigidmember.velocity = currentHeading * speed;
-        else
+        if (useRigidbody) {
+            // rigidBody.velocity = currentHeading * speed;
+            rigidBody.AddForce(currentHeading * speed / 100f, ForceMode.Impulse);
+        } else {
             xform.position += currentHeading * Time.deltaTime * speed;
+        }
+
         if (faceHeading)
             xform.LookAt(xform.position + currentHeading);
 
@@ -113,21 +120,21 @@ public class NPCController : MonoBehaviour
     }
 
 
-    // draws red line from waypoint to waypoint
-    public void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        if (waypoints == null)
-            return;
-        for (int i = 0; i < waypoints.Count; i++)
-        {
-            Vector3 pos = waypoints[i].position;
-            if (i > 0)
-            {
-                Vector3 prev = waypoints[i - 1].position;
-                Gizmos.DrawLine(prev, pos);
-            }
-        }
-    }
+    //// draws red line from waypoint to waypoint
+    //public void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    if (waypoints == null)
+    //        return;
+    //    for (int i = 0; i < waypoints.Count; i++)
+    //    {
+    //        Vector3 pos = waypoints[i].position;
+    //        if (i > 0)
+    //        {
+    //            Vector3 prev = waypoints[i - 1].position;
+    //            Gizmos.DrawLine(prev, pos);
+    //        }
+    //    }
+    //}
 
 }
