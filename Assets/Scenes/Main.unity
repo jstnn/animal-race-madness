@@ -183,7 +183,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (116)
+      value: Waypoint 116
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1369,7 +1369,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (80)
+      value: Waypoint 080
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1428,7 +1428,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (19)
+      value: Waypoint 019
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -1483,7 +1483,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (89)
+      value: Waypoint 089
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2088,6 +2088,97 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 25, y: 2.7755576e-15, z: 50}
   m_Center: {x: 12.5, y: 1.3877788e-15, z: -12.5}
+--- !u!1 &91965592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1496647915213182, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 91965593}
+  - component: {fileID: 91965596}
+  - component: {fileID: 91965595}
+  - component: {fileID: 91965594}
+  m_Layer: 0
+  m_Name: Ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &91965593
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4357073144064596, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91965592}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.22960535, y: -0.96382326, z: 0.21456365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1294974560}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &91965594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 64671243981784916, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91965592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 3d26d9aa417f9c046bf4717d38410ff3, type: 3}
+--- !u!23 &91965595
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23372066605575228, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91965592}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 560b4ac04decd5e4ea929b82341317de, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &91965596
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33083891199137506, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91965592}
+  m_Mesh: {fileID: 4300000, guid: 3d26d9aa417f9c046bf4717d38410ff3, type: 3}
 --- !u!1001 &96184833
 Prefab:
   m_ObjectHideFlags: 0
@@ -2129,7 +2220,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (37)
+      value: Waypoint 037
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2196,7 +2287,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (48)
+      value: Waypoint 048
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3498,7 +3589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &129212879
 Transform:
   m_ObjectHideFlags: 0
@@ -3735,7 +3826,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 146775701}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 959, y: 599.5, z: 0}
+  m_LocalPosition: {x: 948, y: 641, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1494832855}
@@ -4377,7 +4468,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (86)
+      value: Waypoint 086
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5063,7 +5154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (51)
+      value: Waypoint 051
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5130,7 +5221,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (119)
+      value: Waypoint 119
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5189,7 +5280,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (114)
+      value: Waypoint 114
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5248,7 +5339,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (11)
+      value: Waypoint 011
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -5995,7 +6086,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (87)
+      value: Waypoint 087
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -6054,7 +6145,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (115)
+      value: Waypoint 115
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -6113,7 +6204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (108)
+      value: Waypoint 108
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7166,6 +7257,97 @@ MonoBehaviour:
   StartOffset: 0
   FromStringValue: 
   ToStringValue: 
+--- !u!1 &239129959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1033036459673468, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 239129960}
+  - component: {fileID: 239129963}
+  - component: {fileID: 239129962}
+  - component: {fileID: 239129961}
+  m_Layer: 0
+  m_Name: Sky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &239129960
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4102090394529598, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 239129959}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8418544, y: -39.738243, z: -22.348953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1294974560}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &239129961
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 64769894742656872, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 239129959}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 3d26d9aa417f9c046bf4717d38410ff3, type: 3}
+--- !u!23 &239129962
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23491234179100798, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 239129959}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: d10b0a74d21b8704eb887f5ff9ee0c2b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &239129963
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33952986275375530, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 239129959}
+  m_Mesh: {fileID: 4300002, guid: 3d26d9aa417f9c046bf4717d38410ff3, type: 3}
 --- !u!1001 &244984437
 Prefab:
   m_ObjectHideFlags: 0
@@ -7207,7 +7389,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (60)
+      value: Waypoint 060
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7315,7 +7497,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (84)
+      value: Waypoint 084
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7374,7 +7556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (120)
+      value: Waypoint 120
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7433,7 +7615,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (27)
+      value: Waypoint 027
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -7488,7 +7670,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (14)
+      value: Waypoint 014
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -8165,7 +8347,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (78)
+      value: Waypoint 078
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -10009,7 +10191,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (34)
+      value: Waypoint 034
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -10076,7 +10258,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (94)
+      value: Waypoint 094
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -10808,7 +10990,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (9)
+      value: Waypoint 009
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -13831,7 +14013,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (77)
+      value: Waypoint 077
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -13930,7 +14112,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (102)
+      value: Waypoint 102
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14847,7 +15029,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (68)
+      value: Waypoint 068
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14906,7 +15088,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (54)
+      value: Waypoint 054
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14973,7 +15155,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (22)
+      value: Waypoint 022
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -15278,7 +15460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (0)
+      value: Waypoint 000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee8783de049604e319d31e7133361382, type: 2}
@@ -15569,7 +15751,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 514991872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -859, y: -549.5, z: 0}
+  m_LocalPosition: {x: -848, y: -591, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 575708882}
@@ -16946,7 +17128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (110)
+      value: Waypoint 110
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -17666,7 +17848,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (20)
+      value: Waypoint 020
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -17721,7 +17903,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (82)
+      value: Waypoint 082
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -17780,7 +17962,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (46)
+      value: Waypoint 046
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -19405,7 +19587,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (56)
+      value: Waypoint 056
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -22978,7 +23160,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (66)
+      value: Waypoint 066
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -23037,7 +23219,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (40)
+      value: Waypoint 040
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -23493,7 +23675,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (91)
+      value: Waypoint 091
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -23560,7 +23742,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (58)
+      value: Waypoint 058
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -24460,7 +24642,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (16)
+      value: Waypoint 016
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -24515,7 +24697,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (118)
+      value: Waypoint 118
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -25446,7 +25628,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (121)
+      value: Waypoint 121
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -25761,7 +25943,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (29)
+      value: Waypoint 029
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -25874,7 +26056,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (36)
+      value: Waypoint 036
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -26441,7 +26623,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (126)
+      value: Waypoint 126
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -26500,7 +26682,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (83)
+      value: Waypoint 083
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -26559,7 +26741,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (8)
+      value: Waypoint 008
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -26614,7 +26796,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (28)
+      value: Waypoint 028
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -27008,7 +27190,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (62)
+      value: Waypoint 062
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -27528,7 +27710,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (53)
+      value: Waypoint 053
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -28703,7 +28885,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (109)
+      value: Waypoint 109
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -28762,7 +28944,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (55)
+      value: Waypoint 055
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -30275,7 +30457,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (65)
+      value: Waypoint 065
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -30846,7 +31028,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (5)
+      value: Waypoint 005
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -33337,7 +33519,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (44)
+      value: Waypoint 044
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -33396,7 +33578,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (3)
+      value: Waypoint 003
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -33451,7 +33633,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (70)
+      value: Waypoint 070
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -34461,7 +34643,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (112)
+      value: Waypoint 112
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -35073,7 +35255,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (79)
+      value: Waypoint 079
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -35132,7 +35314,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (125)
+      value: Waypoint 125
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -35191,7 +35373,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (92)
+      value: Waypoint 092
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -35258,7 +35440,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (30)
+      value: Waypoint 030
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -35380,7 +35562,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (1)
+      value: Waypoint 001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee8783de049604e319d31e7133361382, type: 2}
@@ -35431,7 +35613,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (43)
+      value: Waypoint 043
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -36518,90 +36700,6 @@ MonoBehaviour:
     IsDisabled: 0
   From: Any
   To: Highlighted
---- !u!1 &1059517061
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1059517065}
-  - component: {fileID: 1059517064}
-  - component: {fileID: 1059517063}
-  - component: {fileID: 1059517062}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &1059517062
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1059517061}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!65 &1059517063
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1059517061}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1059517064
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1059517061}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1059517065
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1059517061}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1062112197 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1640702249446508, guid: e135f994b18364e50b7d5541487f2fb8,
@@ -36922,7 +37020,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (113)
+      value: Waypoint 113
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -37079,7 +37177,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (69)
+      value: Waypoint 069
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -37870,7 +37968,7 @@ Transform:
   - {fileID: 2057114158}
   - {fileID: 226535644}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1094474771
 Prefab:
@@ -37913,7 +38011,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (72)
+      value: Waypoint 072
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -37972,7 +38070,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (123)
+      value: Waypoint 123
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -39126,7 +39224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (6)
+      value: Waypoint 006
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -39459,7 +39557,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (13)
+      value: Waypoint 013
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -39514,7 +39612,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (25)
+      value: Waypoint 025
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -39550,7 +39648,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1124557144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.500004, y: -76.71433, z: 92.53525}
+  m_LocalPosition: {x: 13.38, y: -76.71433, z: 92.53525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 534952664}
@@ -39622,7 +39720,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (71)
+      value: Waypoint 071
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -39681,7 +39779,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (76)
+      value: Waypoint 076
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -39740,7 +39838,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (26)
+      value: Waypoint 026
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -39853,7 +39951,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (17)
+      value: Waypoint 017
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -39924,7 +40022,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (7)
+      value: Waypoint 007
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -40849,7 +40947,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (81)
+      value: Waypoint 081
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -67118,7 +67216,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (88)
+      value: Waypoint 088
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -68492,7 +68590,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (97)
+      value: Waypoint 097
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -68873,7 +68971,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (104)
+      value: Waypoint 104
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -68940,7 +69038,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (105)
+      value: Waypoint 105
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -69378,7 +69476,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (101)
+      value: Waypoint 101
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -69992,7 +70090,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (95)
+      value: Waypoint 095
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -70162,7 +70260,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (32)
+      value: Waypoint 032
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -70700,7 +70798,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262889981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 859, y: -449.5, z: 0}
+  m_LocalPosition: {x: 848, y: -491, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 580985226}
@@ -70753,7 +70851,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (33)
+      value: Waypoint 033
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -71355,6 +71453,57 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 4, z: 18.226534}
   m_Center: {x: 0, y: 2, z: 9.113267}
+--- !u!1 &1294974558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1953212939425742, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1294974560}
+  - component: {fileID: 1294974559}
+  m_Layer: 0
+  m_Name: Background_Panorama
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!95 &1294974559
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 95782462781083936, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1294974558}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 3d26d9aa417f9c046bf4717d38410ff3, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!4 &1294974560
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4364357894593714, guid: e135f994b18364e50b7d5541487f2fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1294974558}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 118, y: -0.8979435, z: 64}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_Children:
+  - {fileID: 91965593}
+  - {fileID: 239129960}
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1299890376
 Prefab:
   m_ObjectHideFlags: 0
@@ -71396,7 +71545,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (127)
+      value: Waypoint 127
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -72411,7 +72560,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (21)
+      value: Waypoint 021
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -73246,7 +73395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (100)
+      value: Waypoint 100
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -75675,7 +75824,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (90)
+      value: Waypoint 090
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -75734,7 +75883,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (49)
+      value: Waypoint 049
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -75863,7 +76012,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (106)
+      value: Waypoint 106
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -76845,7 +76994,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (99)
+      value: Waypoint 099
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -77440,7 +77589,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (75)
+      value: Waypoint 075
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -77499,7 +77648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (12)
+      value: Waypoint 012
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -77554,7 +77703,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (63)
+      value: Waypoint 063
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -79268,7 +79417,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (67)
+      value: Waypoint 067
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -79908,7 +80057,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (73)
+      value: Waypoint 073
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -81069,7 +81218,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1516651337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -574.5, z: 0}
+  m_LocalPosition: {x: 0, y: -616, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 112034429}
@@ -81749,7 +81898,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (124)
+      value: Waypoint 124
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -81808,7 +81957,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (10)
+      value: Waypoint 010
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -81879,7 +82028,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (2)
+      value: Waypoint 002
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -83866,7 +84015,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (41)
+      value: Waypoint 041
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -85088,7 +85237,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (61)
+      value: Waypoint 061
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -86595,7 +86744,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (117)
+      value: Waypoint 117
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -88342,7 +88491,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (39)
+      value: Waypoint 039
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -93407,7 +93556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (107)
+      value: Waypoint 107
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -95482,7 +95631,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (24)
+      value: Waypoint 024
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -96239,7 +96388,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (35)
+      value: Waypoint 035
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -97914,7 +98063,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (42)
+      value: Waypoint 042
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -97981,7 +98130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (111)
+      value: Waypoint 111
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -98040,7 +98189,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (23)
+      value: Waypoint 023
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -98095,7 +98244,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (93)
+      value: Waypoint 093
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -98418,7 +98567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (31)
+      value: Waypoint 031
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -99196,7 +99345,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (52)
+      value: Waypoint 052
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -99846,7 +99995,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (50)
+      value: Waypoint 050
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -101267,7 +101416,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (98)
+      value: Waypoint 098
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -101375,7 +101524,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (45)
+      value: Waypoint 045
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -101451,7 +101600,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (47)
+      value: Waypoint 047
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -103199,7 +103348,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (38)
+      value: Waypoint 038
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -104109,7 +104258,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (103)
+      value: Waypoint 103
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -105578,7 +105727,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (96)
+      value: Waypoint 096
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -106565,7 +106714,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (59)
+      value: Waypoint 059
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -106624,7 +106773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (122)
+      value: Waypoint 122
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -108764,7 +108913,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (18)
+      value: Waypoint 018
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -108819,7 +108968,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (64)
+      value: Waypoint 064
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -108878,7 +109027,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (57)
+      value: Waypoint 057
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -111299,7 +111448,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (74)
+      value: Waypoint 074
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -112023,7 +112172,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (15)
+      value: Waypoint 015
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer
@@ -112078,7 +112227,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (85)
+      value: Waypoint 085
       objectReference: {fileID: 0}
     - target: {fileID: 4418216936416008, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -112137,7 +112286,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Name
-      value: Waypoint (4)
+      value: Waypoint 004
       objectReference: {fileID: 0}
     - target: {fileID: 1566912194961078, guid: ee8783de049604e319d31e7133361382, type: 2}
       propertyPath: m_Layer

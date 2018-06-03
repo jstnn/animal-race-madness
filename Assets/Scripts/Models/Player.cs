@@ -21,6 +21,7 @@ namespace ARM
         public float mass;
         public float force;
         public float speed;
+		public float acceleration;
         public bool mainPlayer;
         public bool isInGround;
         public string idleName;
@@ -42,6 +43,7 @@ namespace ARM
             mass = 1f;
             force = 1f;
             speed = 10f;
+			acceleration = 1f;
             mainPlayer = false;
             isInGround = false;
             idleName = "idle";

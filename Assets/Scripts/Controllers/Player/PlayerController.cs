@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 				rigidBody.mass= kvp.Value["mass"].AsFloat;
 				player.force = kvp.Value["force"].AsFloat;
 				player.speed = kvp.Value["speed"].AsFloat;
+				player.acceleration = kvp.Value["acceleration"].AsFloat;
 			}
 		}
         // fix models scale to world scale
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
                     target = (hit.point - transform.position).normalized;
                     GameObject point = (GameObject)Instantiate(Resources.Load("Point"), hit.point + Vector3.up, Quaternion.identity);
                     // rigidBody.velocity = Vector3.zero;
-					rigidBody.AddForce(target * player.force * player.speed*100, ForceMode.Impulse);
+					rigidBody.AddForce(target * player.acceleration * player.mass, ForceMode.Impulse);
 					Debug.Log(player.playerType + ": " + rigidBody.velocity.magnitude);
                     Destroy(point, .1f);
                 }

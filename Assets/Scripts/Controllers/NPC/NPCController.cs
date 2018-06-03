@@ -33,7 +33,7 @@ public class NPCController : MonoBehaviour
     // Use this for initialization
     protected void Start()
     {
-        //////// SETTING THISN UP ///////
+		//////// SETTING THISN UP ///////
 
         manager = GameObject.Find("RaceManager").GetComponent<Main>();
         player = GetComponent<Player>();
@@ -44,8 +44,11 @@ public class NPCController : MonoBehaviour
         {
             if (player.playerType == kvp.Value["type"].Value)
             {
-                speed = kvp.Value["speed"].AsFloat;
-                //Debug.Log(kvp.Value["type"].Value + ": " + speed.ToString());
+                player.mass = kvp.Value["mass"].AsFloat;
+                player.currentRb.mass = kvp.Value["mass"].AsFloat;
+                player.force = kvp.Value["force"].AsFloat;
+                player.speed = kvp.Value["speed"].AsFloat;
+                player.acceleration = kvp.Value["acceleration"].AsFloat;
             }
         }
         waypoints = new List<Transform>();
@@ -78,6 +81,8 @@ public class NPCController : MonoBehaviour
         {
             useRigidbody = false;
         }
+
+
     }
 
 
@@ -95,9 +100,9 @@ public class NPCController : MonoBehaviour
     // moves us along current heading
     protected void Update()
     {
-        if (useRigidbody) {
+		if (useRigidbody && manager.fsm.State == Main.States.Play) {
             // rigidBody.velocity = currentHeading * speed;
-            rigidBody.AddForce(currentHeading * speed / 100f, ForceMode.Impulse);
+			rigidBody.AddForce(currentHeading * player.acceleration * player.mass, ForceMode.Impulse);
         } else {
             xform.position += currentHeading * Time.deltaTime * speed;
         }

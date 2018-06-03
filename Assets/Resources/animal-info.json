@@ -7,7 +7,8 @@
       "run": "run",
       "mass": 270,
       "force": 2,
-      "speed": 35
+      "speed": 35,
+      "acceleration": 9.7
     },
     {
       "type": "BOAR",
@@ -16,16 +17,18 @@
       "run": "run",
       "mass": 50,
       "force": 2,
-      "speed": 18
+      "speed": 18,
+      "acceleration": 5
     },
     {
       "type": "CHICKEN",
       "idle": "idleEat",
       "walk": "walk",
       "run": "runAngry",
-      "mass": 5,
+      "mass": 10,
       "force": 1,
-      "speed": 14.48
+      "speed": 14.48,
+      "acceleration": 4
     },
     {
       "type": "COW",
@@ -34,7 +37,8 @@
       "run": "run",
       "mass": 600,
       "force": 2,
-      "speed": 60
+      "speed": 60,
+      "acceleration": 16
     },
     {
       "type": "CROCODILE",
@@ -43,7 +47,8 @@
       "run": "runBite",
       "mass": 800,
       "force": 2,
-      "speed": 30
+      "speed": 30,
+      "acceleration": 8.3
     },
     {
       "type": "ELEPHANT",
@@ -52,7 +57,8 @@
       "run": "amble",
       "mass": 3000,
       "force": 2,
-      "speed": 40
+      "speed": 40,
+      "acceleration": 11.1
     },
     {
       "type": "FOX",
@@ -61,7 +67,8 @@
       "run": "run",
       "mass": 8,
       "force": 5,
-      "speed": 119.3
+      "speed": 100,
+      "acceleration": 27.7
     },
     {
       "type": "GOAT",
@@ -70,7 +77,8 @@
       "run": "run",
       "mass": 140,
       "force": 2,
-      "speed": 17
+      "speed": 17,
+      "acceleration": 4.7
     },
     {
       "type": "HIPPOPOTAMUS",
@@ -79,7 +87,8 @@
       "run": "run",
       "mass": 1500,
       "force": 2,
-      "speed": 30
+      "speed": 30,
+      "acceleration": 8.3
     },
     {
       "type": "LION",
@@ -88,7 +97,8 @@
       "run": "run",
       "mass": 250,
       "force": 5,
-      "speed": 80
+      "speed": 80,
+      "acceleration": 22.2
     },
     {
       "type": "PIG",
@@ -97,7 +107,8 @@
       "run": "run",
       "mass": 250,
       "force": 2,
-      "speed": 17.7
+      "speed": 17.7,
+      "acceleration": 4.9
     },
     {
       "type": "RABBIT",
@@ -106,7 +117,8 @@
       "run": "run",
       "mass": 2,
       "force": 4,
-      "speed": 48
+      "speed": 48,
+      "acceleration": 13.3
     },
     {
       "type": "RHINOCEROS",
@@ -115,7 +127,8 @@
       "run": "run",
       "mass": 1500,
       "force": 2,
-      "speed": 55
+      "speed": 55,
+      "acceleration": 15.2
     },
     {
       "type": "SHEEP",
@@ -124,7 +137,8 @@
       "run": "run",
       "mass": 120,
       "force": 2,
-      "speed": 32
+      "speed": 32,
+      "acceleration": 8.8
     },
     {
       "type": "STAG",
@@ -133,7 +147,8 @@
       "run": "run",
       "mass": 250,
       "force": 2,
-      "speed": 98
+      "speed": 98,
+      "acceleration": 27.2
     },
     {
       "type": "ZEBRA",
@@ -142,7 +157,8 @@
       "run": "galop",
       "mass": 350,
       "force": 2,
-      "speed": 64.4
+      "speed": 64.4,
+      "acceleration": 17.88
     }
   ]
 }
