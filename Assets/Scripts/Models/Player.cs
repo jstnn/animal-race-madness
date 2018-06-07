@@ -64,7 +64,7 @@ namespace ARM
 
             foreach (Transform child in GetComponentsInChildren<Transform>(true)) //include inactive
             {
-                if (child.gameObject.name.Contains("_") && !child.gameObject.name.Contains("Footsteps"))
+				if (child.gameObject.name.Contains("Foot") || child.gameObject.name.Contains("Hand"))
                 {
                     child.gameObject.tag = "Player";
                     BoxCollider joint = child.gameObject.AddComponent<BoxCollider>();

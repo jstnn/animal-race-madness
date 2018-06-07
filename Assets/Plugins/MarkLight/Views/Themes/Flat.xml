@@ -83,6 +83,9 @@
              Font="Fonts/Roboto-Regular.ttf" FontSize="18" FontColor="#ffffff" AdjustToText="Width"
              Selected-FontColor="#000000" />
   <Button Style="Small" Width="120" Height="40" FontSize="16" Font="Fonts/Roboto-Regular.ttf" />
-      
+
+
+  <Label Style="IsoLogo" Font="Fonts/Roboto-Bold.ttf" FontSize="70" FontColor="#ffffff" Margin="0,0,0,50" />
+   <Button Style="Large" Width="250" Height="80" FontSize="36" Font="Fonts/Roboto-Bold.ttf" />
           
 </Theme>
