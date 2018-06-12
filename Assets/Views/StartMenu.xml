@@ -5,11 +5,14 @@
                   TransitionOutReverse="SlideOutReverse" TransitionInReverse="SlideInReverse">
 
       <Region Id="MainMenuScreen">
-        <Group Orientation="Vertical" Spacing="25px" ContentAlignment="Top">
-          <Label Style="IsoLogo" Text="ANIMAL LEAGUE" Alignment="Top" AdjustToText="Width" />
-          <Button Style="Large" Text="Play" Click="SelectMenu" />
-          <Button Style="Large" Text="Tournament" IsDisabled="True" />
-          <Button Style="Large" Text="Train"  IsDisabled="True"/>
+        <Group Orientation="Vertical" Spacing="15px" ContentAlignment="Top">
+          <Label Style="IsoLogo" Text="ANIMAL" Alignment="Top" AdjustToText="Width" />
+          <Label Style="IsoLogo" Text="LEAGUE" Alignment="Top" AdjustToText="Width" />
+          <Label Style="IsoLogo" Text="TOURNAMENT" Alignment="Top" AdjustToText="Width" />
+          <Label Text="v0.01" Alignment="Top" AdjustToText="Width" />
+          <Button Text="Play" Click="SelectMenu" />
+          <Button Text="Tournament" IsDisabled="True" />
+          <Button Text="Train"  IsDisabled="True"/>
         </Group>
       </Region>
 

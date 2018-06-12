@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimpleJSON;
 
 namespace ARM
 {
@@ -28,10 +29,10 @@ namespace ARM
         public string walkName;
         public string runName;
         public Animal animal;
-
+		public int currentCheckpoint;
+		public int currentLap;
+		public Rigidbody currentRb;
         float colliderSize = 0.18f;
-
-        public Rigidbody currentRb;
 
         private void Awake()
         {
@@ -49,6 +50,7 @@ namespace ARM
             idleName = "idle";
             walkName = "walk";
             runName = "run";
+			currentLap = 1;
         }
 
         void Start()
@@ -64,7 +66,8 @@ namespace ARM
 
             foreach (Transform child in GetComponentsInChildren<Transform>(true)) //include inactive
             {
-				if (child.gameObject.name.Contains("Foot") || child.gameObject.name.Contains("Hand"))
+				// if (child.gameObject.name.Contains("Foot") || child.gameObject.name.Contains("Hand"))
+				if (child.gameObject.name.Contains("Head"))
                 {
                     child.gameObject.tag = "Player";
                     BoxCollider joint = child.gameObject.AddComponent<BoxCollider>();
@@ -76,7 +79,33 @@ namespace ARM
                 //    joint.size = new Vector3(1.2f, 0.5f, 0.5f);
                 //}
             }
+
+
+			string animationsData = Main.GetStringFromFile("animal-info");
+            var data = JSON.Parse(animationsData);
+            var animations = data["animals"];
+            foreach (KeyValuePair<string, JSONNode> kvp in animations)
+            {
+                if (playerType == kvp.Value["type"].Value)
+                {
+                    mass = kvp.Value["mass"].AsFloat;
+					currentRb.mass = kvp.Value["mass"].AsFloat;
+                    force = kvp.Value["force"].AsFloat;
+                    speed = kvp.Value["speed"].AsFloat;
+                    acceleration = kvp.Value["acceleration"].AsFloat;
+                }
+            }
+            // fix models scale to world scale
+            //transform.localScale = new Vector3 (3, 3, 3);
         }
+        
+		public void MoveToTarget(Vector3 target) {
+			Vector3 impulseTarget = (target - transform.position).normalized;
+			GameObject point = (GameObject)Instantiate(Resources.Load("Point"), target, Quaternion.identity);
+			currentRb.AddForce(impulseTarget * acceleration * mass, ForceMode.Impulse);
+            // Debug.Log(player.playerType + ": " + rigidBody.velocity.magnitude);
+            Destroy(point, .1f);
+		}
 
         void OnCollisionEnter(Collision collision)
         {
@@ -84,7 +113,7 @@ namespace ARM
             {
                 isInGround = true;
                 // currentRb.freezeRotation = true;
-            }
+            }         
         }
 
         private void OnCollisionExit(Collision collision)
@@ -96,9 +125,16 @@ namespace ARM
             }
         }
 
-
-
-    }
+		private void OnTriggerEnter(Collider collision)
+		{
+			if (collision.gameObject.tag == "Checkpoint")
+            {
+				currentCheckpoint = collision.gameObject.GetComponent<Checkpoint>().position;
+            }
+            
+		}
+      
+	}
 
 }
 

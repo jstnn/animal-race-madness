@@ -25,8 +25,7 @@ namespace ARM
         void Awake()
         {
             //Initialize State Machine Engine		
-            fsm = StateMachine<States>.Initialize(this, States.Init);
-
+            fsm = StateMachine<States>.Initialize(this, States.Init);         
         }
 
         void Start()
@@ -34,16 +33,19 @@ namespace ARM
             raceManager = GetComponent<RaceManager>();
         }
 
-
+        
         public string PositionText()
         {
-            var ordered = raceManager.positions.OrderBy(x => x.Value.transform.position.z * -1);
+			var ordered = raceManager.positions.OrderBy(x =>  x.Value.GetComponent<Player>().currentLap * 1000 + x.Value.GetComponent<Player>().currentCheckpoint).Reverse();
             string text = "";
             int i = 1;
             foreach (KeyValuePair<int, GameObject> p in ordered)
             {
-                text += "\n" + i++ + " -> " + (p.Value.GetComponent<Player>().mainPlayer ? "*** " : "") + p.Value.name.Replace("(Clone)", "");
-
+				Player player = p.Value.GetComponent<Player>();
+				string mainPlayerMark = player.mainPlayer ? "***" : "";
+				string playerText = $"\n{i}->{ mainPlayerMark } { player.playerType } ({ player.currentLap * 1000 + player.currentCheckpoint })";
+				text += playerText;
+				i++;
             }
             return text;
         }
@@ -79,7 +81,6 @@ namespace ARM
             yield return new WaitForSeconds(0.5f);
 			EventsManager.UpdateCenterText("Run");
             fsm.ChangeState(States.Play);
-            
         }
 
 

@@ -19,10 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4418216936416008}
-  - component: {fileID: 114365977102894146}
   m_Layer: 2
   m_Name: Waypoint
-  m_TagString: Waypoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -44,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1658904749055590
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,9 +55,10 @@ GameObject:
   - component: {fileID: 33709846900330232}
   - component: {fileID: 64429623642385530}
   - component: {fileID: 23531789563149390}
+  - component: {fileID: 114557786443961830}
   m_Layer: 2
   m_Name: Front
-  m_TagString: Waypoint_Forward
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -207,22 +207,22 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1625695537825214}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114365977102894146
+--- !u!114 &114557786443961830
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566912194961078}
+  m_GameObject: {fileID: 1658904749055590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd618852d890f4f3eafb79ba88b4b5a1, type: 3}
+  m_Script: {fileID: 11500000, guid: dbcc9638fd5dc4fc6949946949d6c90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 0
+  position: 0

@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
-  - Waypoint
-  - Waypoint_Forward
+  - Checkpoint
   - Waypoint_Backward
   layers:
   - Default

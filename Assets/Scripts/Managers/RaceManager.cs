@@ -11,7 +11,7 @@ namespace ARM
         int raceWidth = 25;
         int playerCount = 4;
         int yStartPosition = 2;
-        int zStartPosition = 0;
+        //int zStartPosition = 0;
 
         public static List<string> playerTypeList = new List<string>();
         public List<GameObject> players = new List<GameObject>();
@@ -73,10 +73,11 @@ namespace ARM
             int trackWidth = raceWidth / players.Count;
             int firstPosition = 1;
             int offsetTrack = trackWidth / 2;
+			Vector3 startPosition = GameObject.Find("Start").transform.position;
             foreach (GameObject player in players)
             {
                 int playerPosition = (firstPosition * trackWidth) - offsetTrack;
-                player.transform.position = new Vector3(playerPosition, player.transform.position.y + yStartPosition, player.transform.position.z + zStartPosition);
+				player.transform.position = new Vector3(playerPosition, player.transform.position.y + yStartPosition, startPosition.z);
                 firstPosition++;
             }
         }
@@ -84,7 +85,7 @@ namespace ARM
         void InstantiatePlayer(string animalType, string animalId, bool isMainPlayer, string animalName)
         {
 
-            string prefabPath = "animals/" + animalType + "/FBX FILES/" + animalType;
+			string prefabPath = $"animals/{animalType}";
 
             GameObject instance = Instantiate(Resources.Load(prefabPath, typeof(GameObject))) as GameObject;
             instance.tag = "Player";
@@ -100,7 +101,6 @@ namespace ARM
             if (player.mainPlayer) {
                 EventsManager.SwitchToRaceCam(instance);
                 instance.AddComponent<PlayerController>();
-				instance.AddComponent<PushBack>();
             } else {
                 instance.AddComponent<NPCController>();
             }
