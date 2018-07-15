@@ -9,7 +9,7 @@ namespace ARM
 	{
 		public Label animalInfo;
 		public ObservableList<Animal> Animals;
-		Main main;
+		RaceManager main;
 
 
 		public override void Initialize()
@@ -19,7 +19,7 @@ namespace ARM
         }
 
 		void Start() {
-			main = GameObject.Find("RaceManager").GetComponent<Main>();
+			main = GameObject.Find("RaceManager").GetComponent<RaceManager>();
 			foreach (string animalName in RaceManager.playerTypeList.ToArray())
             {
                 Animals.Add(new Animal { name = animalName });
@@ -37,7 +37,7 @@ namespace ARM
 		}
 		void StartRace()
 		{
-            main.fsm.ChangeState(Main.States.Countdown);
+			main.fsm.ChangeState(RaceManager.States.Countdown);
 			EventsManager.SwitchUiContext("start");
 		}
 	}

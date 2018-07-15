@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
+using System;
 
 namespace ARM
 {
@@ -21,7 +22,7 @@ namespace ARM
         public string uuid;
         public float mass;
         public float force;
-        public float speed;
+		public float speed;
 		public float acceleration;
         public bool mainPlayer;
         public bool isInGround;
@@ -31,8 +32,10 @@ namespace ARM
         public Animal animal;
 		public int currentCheckpoint;
 		public int currentLap;
+		public bool lockedLap;
 		public Rigidbody currentRb;
-        float colliderSize = 0.18f;
+        float colliderSize = .5f;
+		int scaleFactor = 3;
 
         private void Awake()
         {
@@ -46,27 +49,26 @@ namespace ARM
             speed = 10f;
 			acceleration = 1f;
             mainPlayer = false;
-            isInGround = false;
+            isInGround = true;
             idleName = "idle";
             walkName = "walk";
             runName = "run";
-			currentLap = 1;
+			currentLap = 0;
+			lockedLap = true;
         }
 
         void Start()
         {
-            // transforms
-            transform.localScale = new Vector3(2, 2, 2);
+			transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
             currentRb = gameObject.AddComponent<Rigidbody>();
             currentRb.detectCollisions = true;
             currentRb.freezeRotation = true;
             currentRb.mass = mass;
-            currentRb.drag = 5f;
+            currentRb.drag = 1f;
             currentRb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
             foreach (Transform child in GetComponentsInChildren<Transform>(true)) //include inactive
             {
-				// if (child.gameObject.name.Contains("Foot") || child.gameObject.name.Contains("Hand"))
 				if (child.gameObject.name.Contains("Head"))
                 {
                     child.gameObject.tag = "Player";
@@ -81,7 +83,7 @@ namespace ARM
             }
 
 
-			string animationsData = Main.GetStringFromFile("animal-info");
+			string animationsData = RaceManager.GetStringFromFile("animal-info");
             var data = JSON.Parse(animationsData);
             var animations = data["animals"];
             foreach (KeyValuePair<string, JSONNode> kvp in animations)
@@ -95,42 +97,68 @@ namespace ARM
                     acceleration = kvp.Value["acceleration"].AsFloat;
                 }
             }
-            // fix models scale to world scale
-            //transform.localScale = new Vector3 (3, 3, 3);
         }
         
-		public void MoveToTarget(Vector3 target) {
-			Vector3 impulseTarget = (target - transform.position).normalized;
-			GameObject point = (GameObject)Instantiate(Resources.Load("Point"), target, Quaternion.identity);
-			currentRb.AddForce(impulseTarget * acceleration * mass, ForceMode.Impulse);
-            // Debug.Log(player.playerType + ": " + rigidBody.velocity.magnitude);
-            Destroy(point, .1f);
+		public void Jump()
+        {
+			if (isInGround) {
+				currentRb.AddForce(new Vector3(0, acceleration * mass * 2 , 0), ForceMode.Impulse);
+			}
+        }
+
+
+		public void MoveToTarget(Vector3 target)
+		{
+			if (isInGround)
+			{
+				Vector3 impulseTarget = (target - transform.position).normalized;
+				GameObject point = (GameObject)Instantiate(Resources.Load("Point"), target, Quaternion.identity);
+				currentRb.AddForce((impulseTarget * acceleration * mass) / scaleFactor, ForceMode.Impulse);
+				Destroy(point, .1f);
+			}
 		}
 
         void OnCollisionEnter(Collision collision)
         {
+			if (collision.gameObject.tag == "Player")
+            {
+				collision.rigidbody.velocity *= -1;
+            }     
             if (collision.gameObject.tag == "Floor")
             {
                 isInGround = true;
-                // currentRb.freezeRotation = true;
-            }         
+                currentRb.freezeRotation = true;
+			} else {
+				isInGround = false;
+                currentRb.freezeRotation = false;
+			}        
         }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            if (collision.gameObject.tag == "Floor")
-            {
-                isInGround = false;
-                // currentRb.freezeRotation = false;
-            }
-        }
+        
 
 		private void OnTriggerEnter(Collider collision)
 		{
+			
 			if (collision.gameObject.tag == "Checkpoint")
             {
-				currentCheckpoint = collision.gameObject.GetComponent<Checkpoint>().position;
+				currentCheckpoint = collision.gameObject.GetComponent<Checkpoint>().position;            
+
+				if (collision.gameObject.GetComponent<Checkpoint>().lastCheckpoint && lockedLap == true)
+                {
+					if (RaceManager.maxLaps == currentLap++) {
+						RaceManager manager = GameObject.Find("RaceManager").GetComponent<RaceManager>();
+						manager.fsm.ChangeState(RaceManager.States.Win);
+					}
+					lockedLap = false;
+                    currentLap++;
+					EventsManager.AddTime(10f);
+                }
+				// this is a very bad solution
+                if ((currentCheckpoint + currentLap * 1000) > (100 + currentLap * 1000))
+                {
+                    lockedLap = true;
+                }
             }
+            
             
 		}
       

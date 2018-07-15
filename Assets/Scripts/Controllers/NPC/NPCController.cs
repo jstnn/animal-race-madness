@@ -18,25 +18,22 @@ public class NPCController : MonoBehaviour
     public float waypointRadius = 1.5f;
     public float damping = 1f;
     public bool loop = false;
-    public bool faceHeading  = true;
-
     private Vector3 currentHeading, targetHeading;
     private int targetwaypoint;
     private Transform xform;
 
-    Main manager;
+	RaceManager manager;
     Player player;
-
+    
     // Use this for initialization
     protected void Start()
     {
 		//////// SETTING THIS UP ///////
 
-        manager = GameObject.Find("RaceManager").GetComponent<Main>();
+        manager = GameObject.Find("RaceManager").GetComponent<RaceManager>();
         player = GetComponent<Player>();
         waypoints = new List<Transform>();
-        faceHeading = true;
-        damping = 0.01f;
+        damping = .1f;
         loop = true;
         waypointRadius = 20f;
         List<GameObject> waypointObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Checkpoint")).OrderBy(go => go.name).ToList();
@@ -67,15 +64,13 @@ public class NPCController : MonoBehaviour
     // moves us along current heading
     protected void Update()
     {
-		if (manager.fsm.State == Main.States.Play) {
-			float probability = .1f;
+		if (manager.fsm.State == RaceManager.States.Play) {
+			float probability = .5f;
 			if (Random.value <= probability) {
-				player.MoveToTarget(targetHeading);
+				player.MoveToTarget(xform.position + currentHeading);
+				xform.LookAt(xform.position + currentHeading);
 			}
         } 
-
-        if (faceHeading)
-            xform.LookAt(xform.position + currentHeading);
 
         if (Vector3.Distance(xform.position, waypoints[targetwaypoint].position) <= waypointRadius)
         {

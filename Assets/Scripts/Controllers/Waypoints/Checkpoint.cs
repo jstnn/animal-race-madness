@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 
 public class Checkpoint : MonoBehaviour {
 	public int position;
+	public bool lastCheckpoint;
 
 	void Awake()
 	{

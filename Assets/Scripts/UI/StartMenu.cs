@@ -7,7 +7,7 @@ namespace ARM
     public class StartMenu : UIView
     {
         public ViewSwitcher ContentViewSwitcher;
-		StateMachine<Main.States> gameState;
+		StateMachine<RaceManager.States> gameState;
 
 		void OnEnable()
         {
@@ -22,7 +22,7 @@ namespace ARM
 		void Start()
         {
             // main = GameObject.Find("RaceManager").GetComponent<Main>();
-			gameState = GameObject.Find("RaceManager").GetComponent<Main>().fsm;
+			gameState = GameObject.Find("RaceManager").GetComponent<RaceManager>().fsm;
         }
 
         void SwitchUiContextEvent(string context)
@@ -31,7 +31,7 @@ namespace ARM
             {
                 case "select":
                     ContentViewSwitcher.SwitchTo(1);
-					gameState.ChangeState(Main.States.Select);
+					gameState.ChangeState(RaceManager.States.Select);
 					break;
                 case "start":
 					ContentViewSwitcher.SwitchTo(2);
@@ -39,11 +39,11 @@ namespace ARM
 					break;
                 case "back":
                     ContentViewSwitcher.Previous();
-					gameState.ChangeState(Main.States.Init);
+					gameState.ChangeState(RaceManager.States.Init);
 					break;
                 case "restart":
                     ContentViewSwitcher.SwitchTo(1);
-					gameState.ChangeState(Main.States.Select);
+					gameState.ChangeState(RaceManager.States.Select);
 					break;
 				case "finish":
 					break;

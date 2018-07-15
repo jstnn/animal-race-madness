@@ -80,4 +80,17 @@ public class EventsManager : MonoBehaviour {
     }
 
 
+
+    //////
+	/// 
+	public delegate void AddTimeDelegate(float time);
+    public static event AddTimeDelegate AddTimeEvent;
+    public static void AddTime(float time)
+    {
+        if (AddTimeEvent != null)
+            AddTimeEvent(time);
+    }
+
+
+
 }

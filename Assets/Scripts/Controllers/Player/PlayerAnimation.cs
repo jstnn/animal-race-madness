@@ -17,7 +17,7 @@ public class PlayerAnimation : MonoBehaviour {
         rigidBody = player.currentRb;
 		anim = player.GetComponent<Animation>();
 
-        string animationsData = Main.GetStringFromFile("animal-info");
+		string animationsData = RaceManager.GetStringFromFile("animal-info");
         var data = JSON.Parse(animationsData);
         var animations = data["animals"];
         foreach (KeyValuePair<string, JSONNode> kvp in animations)
